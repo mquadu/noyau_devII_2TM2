@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Présentation
 
 Projet EpheCom
@@ -127,3 +128,7 @@ C'est-à-dire :
 - Vous suivez la PEP08 !,
 - Vos noms de variables, fonction, classes etc. sont significatifs,
 - Vous travaillerez de manière agile, cela signifie que vous DEVEZ vous diviser les tâches de manière organisée, triées par priorités et grâce aux outils ci-dessus.
+=======
+# PyP
+J'aime pas gitHub
+>>>>>>> 751bf60 (Ajout mvp)
