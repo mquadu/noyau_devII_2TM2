@@ -1,6 +1,7 @@
 from module.codesTemps import codesTemps
 import requests
-
+import sys
+import os
 
 class Commande:
     def __init__(self, parametreWeather="Louvain-la-Neuve"):
@@ -8,8 +9,9 @@ class Commande:
 
     def help(self):
         try:
-            with open("../data/help.txt") as help:
+            with open(os.path.join(sys.path[0] , "data\help.txt")) as help:
                 print(help.read())
+                print(sys.path[0])
         except FileNotFoundError:
             print("Fichier Introuvable")
 
@@ -17,7 +19,7 @@ class Commande:
     def weather(self):
         # print(self.parametreWeather)
         reponse = requests.get(
-            f"http://api.weatherstack.com/current?access_key=4c53b8fcf4818536539b668a0247408c&query={self.parametreWeather}")  # se connect à l'API de weatherStack
+            f"http://api.weatherstack.com/current?access_key=4c53b8fcf4818536539b668a0247408c&query={self.parametreWeather}")  # se connecte à l'API de weatherStack
         current = reponse.json()
        # print(current)
         print(
