@@ -1,23 +1,12 @@
-
+from message.message import Message
+from bot.bot import Bot
 
 if __name__ == "__main__":
-    rep = input("Entrez une commmande \t")
-    rep_split = rep.split(" ")  # Cas ou il entre le weather avec paramètre
+    rep = input("Entrez une commmande \t")  # La classe message doit récupérer le message de l'utilisateur et son pseudo
 
-    if rep_split[0] == "/help":
-
-        Commande().help()
-
-    elif rep_split[0] == "/weather":
-
-        if len(rep_split) == 2:
-            commande = Commande(rep_split[1]).weather
-            print(commande)
-        else:
-            commande = Commande().weather
-            print(commande)
-    else:
-        print("Erreur dans la weather!")
+    command_list = ["/help", "/weather", "/itinerary", "/resto", "/cine", "/news", "/opinion"]
+    message = Message(rep)
+    Bot(message, command_list)
 
 
 """

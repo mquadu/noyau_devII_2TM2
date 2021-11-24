@@ -28,8 +28,7 @@ class Weather:
     def api_link(self, api_link):
         self.__api_link = api_link
 
-    @property
-    def weather(self):
+    def get_weather(self):
         """Renvoie la température de la ville
 
         PRE : Utilise le parametre weather qui est la ville possible que l'utilisateur doit entrer
