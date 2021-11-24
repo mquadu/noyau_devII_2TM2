@@ -3,14 +3,22 @@ import sys
 
 import requests
 
-from mvp.data.codesTemps import codesTemps
+from Module.data.codesTemps import codesTemps
 
 
-class Commande:
-    def __init__(self, weather_parameter="Louvain-la-Neuve"):
-        self.weather_parameter = weather_parameter
+class Weather:
+    def __init__(self, city: str = "Louvain-la-Neuve", day: int = 1):
+        self.__city = city
         self.__api_link = f"http://api.weatherstack.com/current?access_key=4c53b8fcf4818536539b668a0247408c&query=" \
                           f"{self.weather_parameter} "
+
+    @property
+    def city(self):
+        return self.__city
+
+    @city.setter
+    def city(self, city):
+        self.__city = city
 
     @property
     def api_link(self):
@@ -19,17 +27,6 @@ class Commande:
     @api_link.setter
     def api_link(self, api_link):
         self.__api_link = api_link
-
-    def help(self):
-        """
-        Renvoie toutes les commandes possible et leur description
-        PRE : Prend un fichier contenant les commandes et leur description
-        """
-        try:
-            with open(os.path.join(sys.path[0], "data/help.txt")) as help:
-                print(help.read())
-        except FileNotFoundError:
-            print("Fichier Introuvable")
 
     @property
     def weather(self):
@@ -40,5 +37,5 @@ class Commande:
         """
         response = requests.get(self.api_link)
         current = response.json()
-        return f"La température de {self.weather_parameter} est de {current['current']['temperature']}°C et " \
+        return f"La température de {self.city} est de {current['current']['temperature']}°C et " \
                f"il fait {codesTemps[current['current']['weather_code']]}"

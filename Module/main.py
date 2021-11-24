@@ -1,4 +1,4 @@
-from commande.commande import Commande
+
 
 if __name__ == "__main__":
     rep = input("Entrez une commmande \t")
@@ -17,7 +17,7 @@ if __name__ == "__main__":
             commande = Commande().weather
             print(commande)
     else:
-        print("Erreur dans la commande!")
+        print("Erreur dans la weather!")
 
 
 """
