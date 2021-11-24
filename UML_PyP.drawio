@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="3w-gU8xa_7xzFjALwwKF" name="Page-1">
-        <mxGraphModel dx="1054" dy="1886" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+        <mxGraphModel dx="883" dy="1886" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -136,13 +136,13 @@
                 <mxCell id="160" value="Bot" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
                     <mxGeometry x="340" y="-660" width="210" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="161" value="- help : str&#10;- opinion : str" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="160" vertex="1">
+                <mxCell id="161" value="- command_list : list&#10;- opinion : str&#10;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="160" vertex="1">
                     <mxGeometry y="26" width="210" height="44" as="geometry"/>
                 </mxCell>
                 <mxCell id="162" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="160" vertex="1">
                     <mxGeometry y="70" width="210" height="8" as="geometry"/>
                 </mxCell>
-                <mxCell id="163" value="+ get_help() : void&#10;+ get_request(request) : void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="160" vertex="1">
+                <mxCell id="163" value="+ get_help() : void&#10;+ get_request(request) : void&#10;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="160" vertex="1">
                     <mxGeometry y="78" width="210" height="42" as="geometry"/>
                 </mxCell>
                 <mxCell id="164" value="Opinion" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
@@ -184,12 +184,12 @@
                 <mxCell id="184" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="182" vertex="1">
                     <mxGeometry y="70" width="180" height="8" as="geometry"/>
                 </mxCell>
-                <mxCell id="185" value="+ get_weather() : list" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="182" vertex="1">
+                <mxCell id="185" value="+ get_weather() : str" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="182" vertex="1">
                     <mxGeometry y="78" width="180" height="32" as="geometry"/>
                 </mxCell>
-                <mxCell id="195" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;exitX=1.008;exitY=0.705;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.007;entryY=0.115;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="160" edge="1" source="183">
+                <mxCell id="195" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;entryX=0.007;entryY=0.115;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="160" edge="1">
                     <mxGeometry width="160" relative="1" as="geometry">
-                        <mxPoint x="240" y="-652" as="sourcePoint"/>
+                        <mxPoint x="240" y="-646" as="sourcePoint"/>
                         <mxPoint x="342" y="-652" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
@@ -230,7 +230,7 @@
                 <mxCell id="204" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="202" vertex="1">
                     <mxGeometry y="60" width="160" height="8" as="geometry"/>
                 </mxCell>
-                <mxCell id="205" value="+ get_itinerary() : list&#10;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="202" vertex="1">
+                <mxCell id="205" value="+ get_itinerary() : str&#10;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="202" vertex="1">
                     <mxGeometry y="68" width="160" height="32" as="geometry"/>
                 </mxCell>
                 <mxCell id="217" value="Cinema" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
@@ -248,7 +248,7 @@
                 <mxCell id="221" value="Resto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
                     <mxGeometry x="60" y="-1120" width="160" height="98" as="geometry"/>
                 </mxCell>
-                <mxCell id="222" value="- default_location : str&#10;- typeFood : str" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="221" vertex="1">
+                <mxCell id="222" value="- default_location : str&#10;- type_food : str" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="221" vertex="1">
                     <mxGeometry y="26" width="160" height="34" as="geometry"/>
                 </mxCell>
                 <mxCell id="223" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="221" vertex="1">
@@ -257,12 +257,12 @@
                 <mxCell id="224" value="+ get_restaurant() : list" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="221" vertex="1">
                     <mxGeometry y="68" width="160" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="225" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;entryX=0.19;entryY=1.072;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" edge="1" target="163">
+                <mxCell id="225" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;entryX=0.23;entryY=0.992;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1.01;exitY=0.745;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="203" edge="1" target="163">
                     <mxGeometry width="160" relative="1" as="geometry">
-                        <mxPoint x="220" y="-500" as="sourcePoint"/>
-                        <mxPoint x="340" y="-510" as="targetPoint"/>
+                        <mxPoint x="222" y="-520" as="sourcePoint"/>
+                        <mxPoint x="339" y="-530" as="targetPoint"/>
                         <Array as="points">
-                            <mxPoint x="380" y="-500"/>
+                            <mxPoint x="388" y="-490"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
@@ -275,16 +275,19 @@
                 <mxCell id="228" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="226" vertex="1">
                     <mxGeometry y="70" width="160" height="8" as="geometry"/>
                 </mxCell>
-                <mxCell id="229" value="+ get_message() : void " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="226" vertex="1">
+                <mxCell id="229" value="+ get_message() : str " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="226" vertex="1">
                     <mxGeometry y="78" width="160" height="32" as="geometry"/>
                 </mxCell>
-                <mxCell id="232" value="Uses" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=1.015;exitY=0.216;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.065;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="161" target="227" edge="1">
+                <mxCell id="232" value="Uses" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=1.015;exitY=0.216;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.01;entryY=0.159;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="161" target="227" edge="1">
                     <mxGeometry x="-0.0164" y="1" width="160" relative="1" as="geometry">
                         <mxPoint x="550" y="-580" as="sourcePoint"/>
-                        <mxPoint x="638" y="-580" as="targetPoint"/>
+                        <mxPoint x="650" y="-626" as="targetPoint"/>
                         <mxPoint as="offset"/>
                         <Array as="points"/>
                     </mxGeometry>
+                </mxCell>
+                <mxCell id="237" value="&lt;h3&gt;&lt;/h3&gt;&lt;h2 style=&quot;font-size: 15px ; line-height: 100%&quot;&gt;&lt;div&gt;&lt;span style=&quot;font-weight: normal&quot;&gt;&lt;i&gt;&lt;font face=&quot;Times New Roman&quot;&gt;Le code externe va créer la request en&amp;nbsp;récupérant&amp;nbsp;&lt;/font&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: normal&quot;&gt;&lt;i&gt;&lt;font face=&quot;Times New Roman&quot;&gt;le message et puis va appeler get_request(request)&lt;/font&gt;&lt;/i&gt;&lt;/span&gt;&lt;i style=&quot;font-weight: normal&quot;&gt;&lt;font face=&quot;Times New Roman&quot;&gt;&amp;nbsp;&lt;/font&gt;&lt;/i&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: normal&quot;&gt;&lt;i&gt;&lt;font face=&quot;Times New Roman&quot;&gt;Les fonctionnalités Resto, Cinema, News, Weather et Itinerary&lt;/font&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: normal&quot;&gt;&lt;i&gt;&lt;font face=&quot;Times New Roman&quot;&gt;permettent des possibilités plus étendues sur leur sujet respectif&lt;/font&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: normal&quot;&gt;&lt;i&gt;&lt;font face=&quot;Times New Roman&quot;&gt;La classe Opinion permet de stocker sur une DB un message de&lt;/font&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: normal&quot;&gt;&lt;span&gt;&lt;i&gt;&lt;font face=&quot;Times New Roman&quot;&gt;satisfaction&amp;nbsp;&lt;/font&gt;&lt;/i&gt;&lt;/span&gt;&lt;i&gt;&lt;font face=&quot;Times New Roman&quot;&gt;renvoyé par l'utilisateur&lt;/font&gt;&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;&lt;/h2&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="-190" width="400" height="120" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
