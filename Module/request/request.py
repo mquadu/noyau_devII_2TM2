@@ -1,6 +1,6 @@
 # Recupère les messages de discord
 
-class Message:
+class Request:
     def __init__(self, message: str):
         self.__message = message
 
@@ -12,8 +12,8 @@ class Message:
         self.__message = message
 
     def get_message(self, command_list):
-        # if self.message[0][0] == "/":
-        # message = self.message.split(" ")  # Cas ou il entre le weather avec paramètre
+        # if self.request[0][0] == "/":
+        # request = self.request.split(" ")  # Cas ou il entre le weather avec paramètre
         message_words = self.message.split(" ")
         if message_words[0][0] == "/" and message_words[0] in command_list:
             return message_words

@@ -1,13 +1,18 @@
-from message.message import Message
+from request.request import Request
 from bot.bot import Bot
+from app import ChatBot
 
 if __name__ == "__main__":
-    rep = input("Entrez une commmande \t")  # La classe message doit récupérer le message de l'utilisateur et son pseudo
+    rep = input("Entrez une commmande \t")  # La classe request doit récupérer le request de l'utilisateur et son
+    # pseudo
+    # ChatBot.run()
 
+    # rep = ChatBot.send_info("")
+
+    # print(rep)
     command_list = ["/help", "/weather", "/itinerary", "/resto", "/cine", "/news", "/opinion"]
-    message = Message(rep)
+    message = Request(rep)
     Bot(message, command_list)
-
 
 """
 Exemple de retour json
