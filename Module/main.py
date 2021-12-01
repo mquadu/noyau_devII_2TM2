@@ -1,6 +1,6 @@
 from request.request import Request
 from bot.bot import Bot
-from app import ChatBot
+# from app import ChatBot
 
 if __name__ == "__main__":
     rep = input("Entrez une commmande \t")  # La classe request doit récupérer le request de l'utilisateur et son

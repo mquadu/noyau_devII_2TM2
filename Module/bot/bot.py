@@ -1,9 +1,9 @@
 import os
 import sys
 
-from Module.request.request import Message
+from Module.request.request import Request
 from Module.weather.weather import Weather
-from Module.itinerary.main import Itinerary
+from Module.itinerary.itinerary import Itinerary
 
 
 class Bot:
@@ -49,7 +49,7 @@ class Bot:
                 if len(message) > 3 or len(message) <= 1:
                     return self.error
                 if len(message) == 2:
-                    return Itinerary(message[1])
+                    return Itinerary(destination_address=message[1])
                 if len(message) == 3:
                     return Itinerary(message[1], message[2])
 
