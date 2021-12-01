@@ -7,7 +7,7 @@ class Message:
     @property
     def message(self):
         return self.__message
-
+    
     def set_message(self, message: str):
         self.__message = message
 
