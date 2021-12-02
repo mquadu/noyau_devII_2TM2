@@ -1,0 +1,18 @@
+Gérer les évenements avec kivy
+
+On a besoin de :
+1. La source de l'évenement
+2. L'évenement
+3.Le code à executer à l'évenement
+
+
+Il faudra lier la source avec le code et preciser l'evenement
+
+ex : box.addWidget().bind(on_press=self.code)
+
+
+lien
+https://stackoverflow.com/questions/42820798/how-to-add-background-colour-to-a-label-in-kivy
+
+https://kivy.org/doc/stable/api-kivy.uix.label.html
+

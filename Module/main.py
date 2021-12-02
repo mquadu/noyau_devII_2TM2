@@ -1,24 +1,18 @@
-
+from request.request import Request
+from bot.bot import Bot
+# from app import ChatBot
 
 if __name__ == "__main__":
-    rep = input("Entrez une commmande \t")
-    rep_split = rep.split(" ")  # Cas ou il entre le weather avec paramètre
+    rep = input("Entrez une commmande \t")  # La classe request doit récupérer le request de l'utilisateur et son
+    # pseudo
+    # ChatBot.run()
 
-    if rep_split[0] == "/help":
+    # rep = ChatBot.send_info("")
 
-        Commande().help()
-
-    elif rep_split[0] == "/weather":
-
-        if len(rep_split) == 2:
-            commande = Commande(rep_split[1]).weather
-            print(commande)
-        else:
-            commande = Commande().weather
-            print(commande)
-    else:
-        print("Erreur dans la weather!")
-
+    # print(rep)
+    command_list = ["/help", "/weather", "/itinerary", "/resto", "/cine", "/news", "/opinion"]
+    message = Request(rep)
+    Bot(message, command_list)
 
 """
 Exemple de retour json
