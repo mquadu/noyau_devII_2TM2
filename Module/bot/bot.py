@@ -4,6 +4,7 @@ import sys
 from Module.request.request import Request
 from Module.weather.weather import Weather
 from Module.itinerary.itinerary import Itinerary
+from Module.news.news import News
 
 
 class Bot:
@@ -54,7 +55,7 @@ class Bot:
                     return Itinerary(message[1], message[2])
 
             elif message[0] == "/news":
-                pass
+                print(News().get_news())
 
             elif message[0] == "/cine":
                 pass
