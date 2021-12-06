@@ -30,5 +30,5 @@ class Opinion:
 
 
 #test
-test1 = Opinion()
-test2 = Opinion(is_positif=2, message="pas ouf")
+test_default = Opinion()
+test_modified = Opinion(is_positif=2, message="pas ouf")
