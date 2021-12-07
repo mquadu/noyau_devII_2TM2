@@ -1,0 +1,38 @@
+
+MDScreen:
+    md_bg_color: 0.580, 0.533, 0.984, 1
+    MDBoxLayout:
+        orientation : "vertical"
+        size_hint_y : .1
+
+    MDBoxLayout:
+
+        orientation: "horizontal"
+        size_hint_y : .8 #Definit la hauteur de tous les eléments horizontaux
+
+        MDTextField:
+
+            hint_text: "Envoyez un message"
+            mode: "fill"
+            #pos : 10 , 10
+            size_hint : .6, 0.13 #Definit la largeur qu'occupe le champ en fonction de l'orientation
+            #height : "70dp"
+            color_normal : 0,0,0,0
+
+            canvas.before:
+                Line:
+                    width : .8
+                    rectangle: self.x, self.y, self.width, 0
+
+        MDRaisedButton:
+            text: "Envoyer"
+            size_hint : 0.13 , 0.13 #largeur hauteur
+            height : "30dp"
+            md_bg_color: 1, 0, 1, 1
+
+
+        # ScrollView:
+            #pos : 0.8 , 1
+
+        #     MDList:
+        #         id: box
