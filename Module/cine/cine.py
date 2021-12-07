@@ -3,7 +3,6 @@ import requests
 
 
 class Cine:
-
     def __init__(self, origin='Louvain-la-Neuve', radius=5):
         self.__origin = origin
 
