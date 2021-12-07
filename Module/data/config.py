@@ -11,3 +11,8 @@ def nominatim_link(address):
 
 def weather_stack(param):
     return f"http://api.weatherstack.com/current?access_key=4c53b8fcf4818536539b668a0247408c&query={param}"
+
+
+def cine_link(address):
+    return f"https://nominatim.openstreetmap.org/search?osmtype=N&addressdetails=1&q=cinema+{address}&format=json"
+
