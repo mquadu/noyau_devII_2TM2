@@ -16,3 +16,7 @@ def weather_stack(param):
 def cine_link(address):
     return f"https://nominatim.openstreetmap.org/search?osmtype=N&addressdetails=1&q=cinema+{address}&format=json"
 
+
+def resto_link(address):
+    return f"https://nominatim.openstreetmap.org/search?osmtype=N&addressdetails=1&q=restaurant+{address}&format=json"
+
