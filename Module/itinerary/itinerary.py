@@ -1,4 +1,4 @@
-from OSMPythonTools.nominatim import Nominatim
+# from OSMPythonTools.nominatim import Nominatim
 
 # import pyroutelib2.route as route
 # import urllib.parse
@@ -21,7 +21,6 @@ class Itinerary:
         self.get_intinerary()
 
     def get_intinerary(self):
-
         response_origin = requests.get(self.__url_address_origin).json()
         response_destination = requests.get(self.__url_address_destination).json()
 
@@ -35,58 +34,23 @@ class Itinerary:
             origin_lat + '&end=' + destination_long + ',' + destination_lat,
             headers=config.headers)
 
-        print(call.text)
+        # print(call.text)
+        obj = call.json()
+        # print(obj)
 
-        # print(Nominatim().query(self.__origin_address)[0])
-        # print(response[0]["lat"])
-        # print(response[0]["lon"])
+        distance_general = obj["features"][0]["properties"]["segments"][0]["distance"]
+
+        steps = obj["features"][0]["properties"]["segments"][0]["steps"]
+        # print(obj["features"][0]["properties"]["segments"][0]) #["properties"]["segments"]["distance"]
+        i = 0
+        for i in range(len(steps)):
+            print(f"etape {i} :")
+
+            print("{0}\nDistance : {1} m\n".format(steps[i]["instruction"], steps[i]["distance"]))
 
 
 # Format de reponse de openstreet map
 
-var = [{"place_id": 282683161, "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
-        "osm_type": "relation", "osm_id": 3417260,
-        "boundingbox": ["50.6590954", "50.6894891", "4.5956956", "4.6483381"], "lat": "50.6682012", "lon": "4.6128839",
-        "display_name": "Louvain-la-Neuve, Ottignies-Louvain-la-Neuve, Nivelles, Brabant wallon, Wallonie, 1348, Belgique",
-        "class": "boundary", "type": "administrative", "importance": 0.7427124091390072,
-        "icon": "https://nominatim.openstreetmap.org/ui/mapicons//poi_boundary_administrative.p.20.png"},
-       {"place_id": 57177702, "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
-        "osm_type": "node", "osm_id": 5041130444, "boundingbox": ["50.664712", "50.674712", "4.6110384", "4.6210384"],
-        "lat": "50.669712", "lon": "4.6160384",
-        "display_name": "Louvain-la-Neuve, Gallerie des Halles, Lauzelle, Louvain-la-Neuve, Ottignies-Louvain-la-Neuve, Nivelles, Brabant wallon, Wallonie, 1348, Belgique",
-        "class": "railway", "type": "station", "importance": 0.5874189406975714,
-        "icon": "https://nominatim.openstreetmap.org/ui/mapicons//transport_train_station2.p.20.png"},
-       {"place_id": 100058, "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
-        "osm_type": "node", "osm_id": 144959, "boundingbox": ["50.6810079", "50.6811079", "4.6264192", "4.6265192"],
-        "lat": "50.6810579", "lon": "4.6264692",
-        "display_name": "Louvain-la-Neuve, E411, La Baraque, Louvain-la-Neuve, Ottignies-Louvain-la-Neuve, Nivelles, Brabant wallon, Wallonie, 1348, Belgique",
-        "class": "highway", "type": "motorway_junction", "importance": 0.30100000000000005},
-       {"place_id": 61702184, "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
-        "osm_type": "node", "osm_id": 5604104640, "boundingbox": ["50.6705917", "50.6706917", "4.6171966", "4.6172966"],
-        "lat": "50.6706417", "lon": "4.6172466",
-        "display_name": "Louvain-la-Neuve, Boulevard de Wallonie-Sud, Lauzelle, Louvain-la-Neuve, Ottignies-Louvain-la-Neuve, Nivelles, Brabant wallon, Wallonie, 1348, Belgique",
-        "class": "railway", "type": "stop", "importance": 0.30100000000000005},
-       {"place_id": 61736525, "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
-        "osm_type": "node", "osm_id": 5604104642, "boundingbox": ["50.670494", "50.670594", "4.6173957", "4.6174957"],
-        "lat": "50.670544", "lon": "4.6174457",
-        "display_name": "Louvain-la-Neuve, Voie des Hennuyers, Lauzelle, Louvain-la-Neuve, Ottignies-Louvain-la-Neuve, Nivelles, Brabant wallon, Wallonie, 1348, Belgique",
-        "class": "railway", "type": "stop", "importance": 0.30100000000000005},
-       {"place_id": 111340848, "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
-        "osm_type": "way", "osm_id": 38652974, "boundingbox": ["50.6674207", "50.6680871", "4.6128961", "4.6138391"],
-        "lat": "50.667778850000005", "lon": "4.613385154195076",
-        "display_name": "Louvain-La-Neuve, Gare d'Autobus, Boulevard du Sud, Biéreau, Louvain-la-Neuve, Ottignies-Louvain-la-Neuve, Nivelles, Brabant wallon, Wallonie, 1348, Belgique",
-        "class": "amenity", "type": "bus_station", "importance": 0.30100000000000005,
-        "icon": "https://nominatim.openstreetmap.org/ui/mapicons//transport_bus_station.p.20.png"},
-       {"place_id": 229729, "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
-        "osm_type": "node", "osm_id": 60286173, "boundingbox": ["50.6595896", "50.6596896", "4.608404", "4.608504"],
-        "lat": "50.6596396", "lon": "4.608454",
-        "display_name": "N223;Louvain-la-Neuve;Biéreau;Bruyère, N238, Ottignies, Ottignies-Louvain-la-Neuve, Nivelles, Brabant wallon, Wallonie, 1340, Belgique",
-        "class": "highway", "type": "motorway_junction", "importance": 0.30100000000000005},
-       {"place_id": 721816, "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
-        "osm_type": "node", "osm_id": 267816832, "boundingbox": ["50.6782198", "50.6783198", "4.6281294", "4.6282294"],
-        "lat": "50.6782698", "lon": "4.6281794",
-        "display_name": "Louvain-la-Neuve, E411, Val Villers, Chaumont-Gistoux, Nivelles, Brabant wallon, Wallonie, 1325, Belgique",
-        "class": "highway", "type": "motorway_junction", "importance": 0.30100000000000005}]
 
 # Response openstreetservice
 
@@ -223,3 +187,46 @@ var = {"type": "FeatureCollection", "features": [{"bbox": [4.605783, 50.667945, 
                     "query": {"coordinates": [[4.6128839, 50.6682012], [4.60845, 50.7162425]], "profile": "driving-car",
                               "format": "json"}, "engine": {"version": "6.6.1", "build_date": "2021-07-05T10:57:48Z",
                                                             "graph_date": "2021-11-18T15:23:41Z"}}}
+var = [{"place_id": 282683161, "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "relation", "osm_id": 3417260,
+        "boundingbox": ["50.6590954", "50.6894891", "4.5956956", "4.6483381"], "lat": "50.6682012", "lon": "4.6128839",
+        "display_name": "Louvain-la-Neuve, Ottignies-Louvain-la-Neuve, Nivelles, Brabant wallon, Wallonie, 1348, Belgique",
+        "class": "boundary", "type": "administrative", "importance": 0.7427124091390072,
+        "icon": "https://nominatim.openstreetmap.org/ui/mapicons//poi_boundary_administrative.p.20.png"},
+       {"place_id": 57177702, "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node", "osm_id": 5041130444, "boundingbox": ["50.664712", "50.674712", "4.6110384", "4.6210384"],
+        "lat": "50.669712", "lon": "4.6160384",
+        "display_name": "Louvain-la-Neuve, Gallerie des Halles, Lauzelle, Louvain-la-Neuve, Ottignies-Louvain-la-Neuve, Nivelles, Brabant wallon, Wallonie, 1348, Belgique",
+        "class": "railway", "type": "station", "importance": 0.5874189406975714,
+        "icon": "https://nominatim.openstreetmap.org/ui/mapicons//transport_train_station2.p.20.png"},
+       {"place_id": 100058, "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node", "osm_id": 144959, "boundingbox": ["50.6810079", "50.6811079", "4.6264192", "4.6265192"],
+        "lat": "50.6810579", "lon": "4.6264692",
+        "display_name": "Louvain-la-Neuve, E411, La Baraque, Louvain-la-Neuve, Ottignies-Louvain-la-Neuve, Nivelles, Brabant wallon, Wallonie, 1348, Belgique",
+        "class": "highway", "type": "motorway_junction", "importance": 0.30100000000000005},
+       {"place_id": 61702184, "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node", "osm_id": 5604104640, "boundingbox": ["50.6705917", "50.6706917", "4.6171966", "4.6172966"],
+        "lat": "50.6706417", "lon": "4.6172466",
+        "display_name": "Louvain-la-Neuve, Boulevard de Wallonie-Sud, Lauzelle, Louvain-la-Neuve, Ottignies-Louvain-la-Neuve, Nivelles, Brabant wallon, Wallonie, 1348, Belgique",
+        "class": "railway", "type": "stop", "importance": 0.30100000000000005},
+       {"place_id": 61736525, "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node", "osm_id": 5604104642, "boundingbox": ["50.670494", "50.670594", "4.6173957", "4.6174957"],
+        "lat": "50.670544", "lon": "4.6174457",
+        "display_name": "Louvain-la-Neuve, Voie des Hennuyers, Lauzelle, Louvain-la-Neuve, Ottignies-Louvain-la-Neuve, Nivelles, Brabant wallon, Wallonie, 1348, Belgique",
+        "class": "railway", "type": "stop", "importance": 0.30100000000000005},
+       {"place_id": 111340848, "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "way", "osm_id": 38652974, "boundingbox": ["50.6674207", "50.6680871", "4.6128961", "4.6138391"],
+        "lat": "50.667778850000005", "lon": "4.613385154195076",
+        "display_name": "Louvain-La-Neuve, Gare d'Autobus, Boulevard du Sud, Biéreau, Louvain-la-Neuve, Ottignies-Louvain-la-Neuve, Nivelles, Brabant wallon, Wallonie, 1348, Belgique",
+        "class": "amenity", "type": "bus_station", "importance": 0.30100000000000005,
+        "icon": "https://nominatim.openstreetmap.org/ui/mapicons//transport_bus_station.p.20.png"},
+       {"place_id": 229729, "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node", "osm_id": 60286173, "boundingbox": ["50.6595896", "50.6596896", "4.608404", "4.608504"],
+        "lat": "50.6596396", "lon": "4.608454",
+        "display_name": "N223;Louvain-la-Neuve;Biéreau;Bruyère, N238, Ottignies, Ottignies-Louvain-la-Neuve, Nivelles, Brabant wallon, Wallonie, 1340, Belgique",
+        "class": "highway", "type": "motorway_junction", "importance": 0.30100000000000005},
+       {"place_id": 721816, "licence": "Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright",
+        "osm_type": "node", "osm_id": 267816832, "boundingbox": ["50.6782198", "50.6783198", "4.6281294", "4.6282294"],
+        "lat": "50.6782698", "lon": "4.6281794",
+        "display_name": "Louvain-la-Neuve, E411, Val Villers, Chaumont-Gistoux, Nivelles, Brabant wallon, Wallonie, 1325, Belgique",
+        "class": "highway", "type": "motorway_junction", "importance": 0.30100000000000005}]

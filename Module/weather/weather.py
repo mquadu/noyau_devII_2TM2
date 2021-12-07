@@ -3,14 +3,15 @@ import sys
 
 import requests
 
+from ..data.config import weather_stack
+
 from Module.data.codesTemps import codesTemps
 
 
 class Weather:
     def __init__(self, city: str = "Louvain-la-Neuve", day: int = 1):
         self.__city = city
-        self.__api_link = f"http://api.weatherstack.com/current?access_key=4c53b8fcf4818536539b668a0247408c&query=" \
-                          f"{self.weather_parameter} "
+        self.__api_link = weather_stack(self.city)
 
     @property
     def city(self):

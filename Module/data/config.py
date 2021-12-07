@@ -7,3 +7,7 @@ open_street_link = 'https://api.openrouteservice.org/v2/directions/driving-car?a
 # Link nominatim openstreetmap
 def nominatim_link(address):
     return 'https://nominatim.openstreetmap.org/search/' + address + '?format=json'
+
+
+def weather_stack(param):
+    return f"http://api.weatherstack.com/current?access_key=4c53b8fcf4818536539b668a0247408c&query={param}"
