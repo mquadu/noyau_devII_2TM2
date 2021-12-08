@@ -15,7 +15,7 @@ CERTIFICATE_FILE = os.path.join(MODULE_DIR, "data\\2TM2-G2.pem")
 
 
 # Link nominatim openstreetmap
-def nominatim_link(address):
+def itinerary_link(address):
     return 'https://nominatim.openstreetmap.org/search/' + address + '?format=json'
 
 

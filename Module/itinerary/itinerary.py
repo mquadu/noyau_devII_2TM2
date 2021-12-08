@@ -1,10 +1,5 @@
-# from OSMPythonTools.nominatim import Nominatim
-
-# import pyroutelib2.route as route
-# import urllib.parse
 import Module.data.config as config
 import requests
-
 
 # import folium
 # import openrouteservice
@@ -15,8 +10,8 @@ class Itinerary:
         self.__origin_address = origin_address
         self.__destination_address = destination_address
 
-        self.__url_address_origin = config.nominatim_link(origin_address)
-        self.__url_address_destination = config.nominatim_link(destination_address)
+        self.__url_address_origin = config.itinerary_link(origin_address)
+        self.__url_address_destination = config.itinerary_link(destination_address)
 
         self.get_intinerary()
 
@@ -36,24 +31,18 @@ class Itinerary:
 
         # print(call.text)
         obj = call.json()
-        # print(obj)
 
         distance_general = obj["features"][0]["properties"]["segments"][0]["distance"]
 
         steps = obj["features"][0]["properties"]["segments"][0]["steps"]
-        # print(obj["features"][0]["properties"]["segments"][0]) #["properties"]["segments"]["distance"]
-        i = 0
+
         for i in range(len(steps)):
             print(f"etape {i} :")
 
             print("{0}\nDistance : {1} m\n".format(steps[i]["instruction"], steps[i]["distance"]))
 
 
-# Format de reponse de openstreet map
-
-
-# Response openstreetservice
-
+#Format de reponse
 var = {"type": "FeatureCollection", "features": [{"bbox": [4.605783, 50.667945, 4.630322, 50.716361], "type": "Feature",
                                                   "properties": {"segments": [{"distance": 6629.6, "duration": 607.5,
                                                                                "steps": [

@@ -8,7 +8,7 @@ class Cine:
 
         self.__radius = radius
         self.__url_origin = cine_link(self.origin)
-        self.get_cine()
+
 
     @property
     def url_origin(self):
@@ -16,17 +16,17 @@ class Cine:
 
     @property
     def origin(self):
-        return self.origin
+        return self.__origin
 
     @origin.setter
-    def origin(self, origin):
-        self.__origin = origin
+    def origin(self, origin_):
+        self.__origin = origin_
 
     def get_cine(self):
         response = requests.get(self.url_origin).json()
 
         for i in response:
-            print(f"{i['display_name']}\n")
+            return f"{i['display_name']}\n"
 
 
 var = [{'place_id': 60799619, 'licence': 'Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright',

@@ -14,7 +14,4 @@ class Resto:
         print(response)
 
         for i in response:
-            print(f"{i['display_name']}\n")
-
-
-Resto('Rixensart')
+            return f"{i['display_name']}\n"
