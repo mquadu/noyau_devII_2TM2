@@ -26,10 +26,15 @@ class Cine:
         self.__origin = origin_
 
     def get_cine(self):
-        response = requests.get(self.url_origin).json()
+        try:
+            response = requests.get(self.url_origin).json()
+        except ValueError:
+            return "Can't fetch Cinema"
 
+        cine = ""
         for i in response:
-            return f"{i['display_name']}\n"
+            cine += f"{i['display_name']}\n"
+        return cine
 
 
 var = [{'place_id': 60799619, 'licence': 'Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright',

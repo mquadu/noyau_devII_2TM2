@@ -57,10 +57,20 @@ class Bot:
                 print(News().get_news())
 
             elif message[0] == "/cine":
-                return Cine().get_cine()
+                if len(message) > 2:
+                    return self.error
+                if len(message) == 2:
+                    return Cine(message[1]).get_cine()
+                if len(message) == 1:
+                    return Cine().get_cine()
 
             elif message[0] == "/resto":
-                return Resto().get_resto()
+                if len(message) > 2:
+                    return self.error
+                if len(message) == 2:
+                    return Resto(message[1]).get_resto()
+                if len(message) == 1:
+                    return Resto().get_resto()
 
             elif message[0] == "/opinion":
                 pass
