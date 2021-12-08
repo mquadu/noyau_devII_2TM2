@@ -8,7 +8,10 @@ class Cine:
 
         self.__radius = radius
         self.__url_origin = cine_link(self.origin)
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
     @property
     def url_origin(self):
