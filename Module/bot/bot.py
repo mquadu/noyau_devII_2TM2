@@ -1,15 +1,14 @@
-import os
-import sys
-
-from Module.request.request import Request
 from Module.weather.weather import Weather
 from Module.itinerary.itinerary import Itinerary
 from Module.news.news import News
+from Module.cine.cine import Cine
+from Module.resto.resto import Resto
+from Module.data.config import HELP_FILE
 
 
 class Bot:
     # Mettre le chemin du fichier dans un fichier de configuration
-    def __init__(self, message, command_list: list, opinion: str = "", help_file=sys.path[0]):
+    def __init__(self, message, command_list: list, opinion: str = "", help_file=HELP_FILE):
         self.__help = help_file
         self.__message = message.get_message(command_list)
         self.error = "Mauvaise syntaxe veuillez entrez /help pour plus de précision!"
@@ -26,7 +25,7 @@ class Bot:
         PRE : Prend un fichier contenant les commandes et leur description
         """
         try:
-            with open(os.path.join(self.help, "data/help.txt")) as help:
+            with open(self.help) as help:
                 print(help.read())
         except FileNotFoundError:
             print("Fichier Introuvable")
@@ -58,10 +57,10 @@ class Bot:
                 print(News().get_news())
 
             elif message[0] == "/cine":
-                pass
+                return Cine().get_cine()
 
             elif message[0] == "/resto":
-                pass
+                return Resto().get_resto()
 
             elif message[0] == "/opinion":
                 pass

@@ -29,8 +29,6 @@ class Cine:
             print(f"{i['display_name']}\n")
 
 
-Cine('Namur')
-
 var = [{'place_id': 60799619, 'licence': 'Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright',
         'osm_type': 'node', 'osm_id': 5472585695, 'boundingbox': ['50.6691735', '50.6692735', '4.611501', '4.611601'],
         'lat': '50.6692235', 'lon': '4.611551',

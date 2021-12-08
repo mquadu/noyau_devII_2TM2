@@ -1,7 +1,7 @@
 #Noé Libon
 #https://www.w3schools.com/python/python_mongodb_getstarted.asp
 
-import pymongo
+
 from pymongo import MongoClient
 
 
