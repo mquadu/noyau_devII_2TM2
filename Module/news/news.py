@@ -6,17 +6,12 @@ import datetime
 class News:
     def __init__(self, arg: str = "be"):
         self.__argument = arg
-        self.__max_articles = 1
         self.__date = "&date=" + str(datetime.date.today())
         self.__limit = "&limit=1"
         self.__country = "&countries="
         self.__keyword = "&keywords="
         self.__languages = "&languages=fr"
         self.__api_link = "http://api.mediastack.com/v1/news?access_key=4a9e07d9cfd75c8d73c70f90ed4846f5"
-
-    @property
-    def max_articles(self):
-        return self.__max_articles
 
     @property
     def date(self):
