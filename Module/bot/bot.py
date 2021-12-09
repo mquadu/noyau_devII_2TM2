@@ -54,7 +54,10 @@ class Bot:
                     return Itinerary(message[1], message[2])
 
             elif message[0] == "/news":
-                return News().get_news()
+                if len(message) > 2 or len(message) <= 0:
+                    return self.error
+                if len(message) == 2:
+                    return News(message[1]).get_news()
 
             elif message[0] == "/cine":
                 if len(message) > 2:
