@@ -16,8 +16,8 @@ class Cine:
         return self.__origin
 
     @origin.setter
-    def origin(self, origin_):
-        self.__origin = origin_
+    def origin(self, origin):
+        self.__origin = origin
 
     def get_cine(self):
         try:
