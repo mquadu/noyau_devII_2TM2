@@ -1,2 +1,3 @@
 /help  : Fait apparaitre la liste de toutes les commandes,
-/weather : Renvoie par défault le temps actuel de Louvain-La-Neuve (Un paramètre supplémentaire nous permet de mentionner une adresse spécifique)
+/weather : Renvoie par défault le temps actuel de Louvain-La-Neuve, un paramètre supplémentaire nous permet de mentionner une adresse spécifique
+/news : renvoie par défault un article belge, un parmaètre suplémentaire nous permet de choisir un sujet ou de sélectionné un pays d'orignine (le pays doit être avec son code, par exemple: fr pour "France")
