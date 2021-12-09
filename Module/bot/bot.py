@@ -58,6 +58,8 @@ class Bot:
                     return self.error
                 if len(message) == 2:
                     return News(message[1]).get_news()
+                if len(message) == 1:
+                    return News().get_news()
 
             elif message[0] == "/cine":
                 if len(message) > 2:
