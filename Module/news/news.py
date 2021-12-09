@@ -5,11 +5,11 @@ import requests
 
 
 class News:
-    def __init__(self, limit: str = "5", country: str = "be", languages: str = "fr"):
-        self.__max_articles = int(limit)
-        self.__limit = "&limit="+limit
+    def __init__(self, country: str = "be"):
+        self.__max_articles = 5
+        self.__limit = "&limit=5"
         self.__country = "&country="+country
-        self.__languages = "&languages="+languages
+        self.__languages = "&languages=fr"
         self.__api_link = f"http://api.mediastack.com/v1/news?access_key=4a9e07d9cfd75c8d73c70f90ed4846f5"
 
     @property
@@ -36,8 +36,8 @@ class News:
         """
         Renvoie les news
 
-        PRE : Utilise le parametre weather qui est la ville possible que l'utilisateur doit entrer
-        POST : Renvoie une chaine contenant la température qu'il fait dans la ville
+        PRE : -
+        POST : Renvoie une chaine contenant les news
         """
         response = requests.get(self.api_link+self.country+self.languages+self.limit)
         current = response.json()
