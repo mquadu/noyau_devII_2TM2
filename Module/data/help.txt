@@ -1,2 +1,2 @@
 /help  : Fait apparaitre la liste de toutes les commandes,
-/weather : Renvoie par défault le temps actuel de Louvain-La-Neuve (Un paramètre supplémentaire nous permet de mentionner une adresse spécifique)
+/weather : Renvoie par défaut le temps actuel de Louvain-La-Neuve (Un paramètre supplémentaire nous permet de mentionner une adresse spécifique)
