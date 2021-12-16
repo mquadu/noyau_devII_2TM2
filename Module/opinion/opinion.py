@@ -1,16 +1,13 @@
 #Noé Libon
-#https://www.w3schools.com/python/python_mongodb_getstarted.asp
-
+#connexion: mongosh "mongodb+srv://cluster0.5i6qo.gcp.mongodb.net/<LE_NOM_DE_LA_DB>?authSource=%24external&authMechanism=MONGODB-X509" --tls --tlsCertificateKeyFile <LE_PATH_VERS_LE_PEM>
 
 from pymongo import MongoClient
-from src.config import config
-
+from ..data.config import *
 
 class Opinion:
     def __init__(self, is_positif=5, message="super"):
         self.__opinion = is_positif
         self.__message = message
-        print(config.ROOT_DIR)
         self.send_db()
 
 
