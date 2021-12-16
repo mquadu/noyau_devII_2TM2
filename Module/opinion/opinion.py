@@ -1,28 +1,37 @@
-#Noé Libon
-#connexion: mongosh "mongodb+srv://cluster0.5i6qo.gcp.mongodb.net/ephecom-2TM2?authSource=%24external&authMechanism=MONGODB-X509" --tls --tlsCertificateKeyFile C:\Users\noeli\Desktop\TI\Bloc2\Q1\Dev2\Projets\PythonChatBot\noyau_devII_2TM2\Module\data\X509-cert-5486301905818120966.pem
+# Noé Libon connexion: mongosh "mongodb+srv://cluster0.5i6qo.gcp.mongodb.net/ephecom-2TM2?authSource=%24external
+# &authMechanism=MONGODB-X509" --tls --tlsCertificateKeyFile
+# C:\Users\noeli\Desktop\TI\Bloc2\Q1\Dev2\Projets\PythonChatBot\noyau_devII_2TM2\Module\data\X509-cert
+# -5486301905818120966.pem
 
 from pymongo import MongoClient
 from Module.data.config import *
 
+
 class MongoConnector:
-    
+
     def __init__(self):
         certificat_path = CERTIFICATE_FILE
-        uri = "mongodb+srv://cluster0.5i6qo.gcp.mongodb.net/ephecom-2TM2?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority&ssl_cert_reqs=CERT_NONE"
+        uri = "mongodb+srv://cluster0.5i6qo.gcp.mongodb.net/ephecom-2TM2?authSource=%24external&authMechanism=MONGODB" \
+              "-X509&retryWrites=true&w=majority&ssl_cert_reqs=CERT_NONE "
         client = MongoClient(uri,
                              tls=True,
                              tlsCertificateKeyFile=certificat_path)
         self.db = client["ephecom-2TM2"]
-    
+
     def __enter__(self):
+
         return self
-    
+
     def __exit__(self):
         self.db.close()
 
 
-class Opinion:
-    def __init__(self, is_positif=5, message="super"):
+class Opinion(MongoConnector):
+    def __init__(self, is_positif, message=""):
+        super().__init__()
+        self.score = is_positif
+        self.message = message
+
         try:
             with MongoConnector() as connector:
                 collection = connector.db["users"]
@@ -30,7 +39,11 @@ class Opinion:
                 print(res)
         except Exception as e:
             print(e)
-        
+
+    def set_opinion(self):
+
+        return self.db.find_one()
+
     """    
         self.__opinion = is_positif
         self.__message = message
@@ -61,4 +74,5 @@ test_default = Opinion()
 test_modified = Opinion(is_positif=2, message="pas ouf")
     """
 
-o = Opinion()
+
+

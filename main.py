@@ -4,6 +4,8 @@ import kivy
 from src.models.mongo_connector import MongoConnector
 from src.models.screens_manager import ScreensManager
 
+
+
 from kivy.app import App
 from kivy.lang import Builder
 from Module.data.config import VIEWS_DIR
@@ -30,6 +32,11 @@ class ChatBot(App):
 
 if __name__ == "__main__":
     ChatBot().run()
+
+
+
+
+
 
 # add the following 2 lines to solve OpenGL 2.0 bug
 # from kivy import Config

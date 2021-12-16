@@ -19,10 +19,10 @@ class Request:
             return message_words
 
         elif message_words[0][0] == "/" and message_words[0] not in command_list:
-            print(message_words[0])
             self.set_message("Commande introuvable!")
             return self.message
         else:
+
             return
 
         # elif rep_split[0] == "/weather":

@@ -4,6 +4,7 @@ from Module.news.news import News
 from Module.cine.cine import Cine
 from Module.resto.resto import Resto
 from Module.data.config import HELP_FILE
+from Module.opinion.opinion import Opinion
 
 
 class Bot:
@@ -15,7 +16,6 @@ class Bot:
 
     def __str__(self):
         if self.__message:
-            print(self.process_request(self.__message))
             return self.process_request(self.__message)
 
     @property
@@ -39,7 +39,7 @@ class Bot:
         """
 
         # message est une liste contenant la commande et les paramètres que l'utilisateur a introduit
-
+        print("A ce niveau" , message)
         if isinstance(message, list):
             if message[0] == "/help":
                 return self.get_help()
@@ -52,9 +52,9 @@ class Bot:
                 if len(message) > 3 or len(message) <= 1:
                     return self.error
                 if len(message) == 2:
-                    return Itinerary(destination_address=message[1]).get_intinerary()
+                    return Itinerary(destination_address=message[1]).get_itinerary()
                 if len(message) == 3:
-                    return Itinerary(message[1], message[2]).get_intinerary()
+                    return Itinerary(message[1], message[2]).get_itinerary()
 
             elif message[0] == "/news":
                 if len(message) > 2 or len(message) <= 0:
@@ -81,6 +81,13 @@ class Bot:
                     return Resto().get_resto()
 
             elif message[0] == "/opinion":
-                pass
+
+                if len(message) < 2:
+                    return self.error
+                if len(message) == 2:
+                    return Opinion(message[1]).set_opinion()
+                if len(message) > 2:
+                    print("je suis dans de dernier if l'opinion du bot")
+                    return Opinion(message[1], message[2]).set_opinion()
         elif isinstance(message, str):
             return message

@@ -1,6 +1,7 @@
 import Module.data.config as config
 import requests
 
+
 # import folium
 # import openrouteservice
 
@@ -13,13 +14,7 @@ class Itinerary:
         self.__url_address_origin = config.itinerary_link(origin_address)
         self.__url_address_destination = config.itinerary_link(destination_address)
 
-<<<<<<< Updated upstream
-    def get_intinerary(self):
-=======
-        self.get_itinerary()
-
     def get_itinerary(self):
->>>>>>> Stashed changes
         response_origin = requests.get(self.__url_address_origin).json()
         response_destination = requests.get(self.__url_address_destination).json()
 
@@ -47,7 +42,8 @@ class Itinerary:
         print(type(way))
         return way
 
-#Format de reponse
+
+# Format de reponse
 var = {"type": "FeatureCollection", "features": [{"bbox": [4.605783, 50.667945, 4.630322, 50.716361], "type": "Feature",
                                                   "properties": {"segments": [{"distance": 6629.6, "duration": 607.5,
                                                                                "steps": [
