@@ -1,7 +1,7 @@
 /help  : Fait apparaitre la liste de toutes les commandes,
-/weather : Renvoie par défaut le temps actuel de Louvain-La-Neuve (Un paramètre supplémentaire nous permet de mentionner une adresse spécifique)
-/itinerary : Renvoie un itinéraire. Si un seul paramètre, il tient lieu de destination (LLN étant l'origine par défaut).Sinon, le premier paramètre est l'origine et le deuxième, la destination
-/news : Renvoie les actualités nationales. Un paramètre supplémentaire permet de préciser un pays
-/resto : Renvoie une liste des restaurants de LLN par défaut, d'une autre ville si précisée en paramètre.
-/cine : Renvoie une liste des cinémas de LLN par défaut, d'une autre ville si précisée en paramètre.
-/opinion : Permet à l'utilisateur de faire part de son opinion quant à l'utilisation du bot. Un second paramètre lui permet de laisser un commentaire sous forme d'une chaine de caractères
+/weather : Renvoie par defaut le temps actuel de Louvain-La-Neuve (Un parametre supplementaire nous permet de mentionner une adresse specifique)
+/itinerary : Renvoie un itineraire. Si un seul parametre, il tient lieu de destination (LLN etant l'origine par defaut).Sinon, le premier parametre est l'origine et le deuxieme, la destination
+/news : Renvoie les actualites nationales. Un parametre supplementaire permet de preciser un pays
+/resto : Renvoie une liste des restaurants de LLN par defaut, d'une autre ville si precisee en parametre.
+/cine : Renvoie une liste des cinemas de LLN par defaut, d'une autre ville si precisee en parametre.
+/opinion : Permet à l'utilisateur de faire part de son opinion quant à l'utilisation du bot. Un second parametre lui permet de laisser un commentaire sous forme d'une chaine de caracteres
