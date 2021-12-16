@@ -1,3 +1,4 @@
+# Marina
 from ..data.config import cine_link
 import requests
 
@@ -20,6 +21,10 @@ class Cine:
         self.__origin = origin
 
     def get_cine(self):
+        """
+        PRE : "/cine"
+        POST : liste des cinemas du lieu passé en paramètre (par défaut LLN)
+        """
         try:
             response = requests.get(self.url_origin).json()
         except ValueError:

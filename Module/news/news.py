@@ -51,9 +51,9 @@ class News:
 
     def get_news(self):
         """
-        Renvoie les news
+        Renvoie les actualites
 
-        PRE : -
+        PRE : "/news"
         POST : Renvoie une chaine contenant les news d'un pays ou d'un sujet
         """
         if len(self.argument) == 2:

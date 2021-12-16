@@ -1,3 +1,4 @@
+# Marina
 from ..data.config import resto_link
 import requests
 
@@ -21,6 +22,10 @@ class Resto:
         self.__origin = origin
 
     def get_resto(self):
+        """
+        PRE : "/resto"
+        POST : liste des restos du lieu passé en paramètre (par défaut LLN)
+        """
         try:
             response = requests.get(self.url_origin).json()
         except ValueError:

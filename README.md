@@ -13,7 +13,7 @@ Les demandes concernent la météo, la recherche d'un itinéraire, les actualit�
 
 ## Usage
 - Ligne de commande
->python3 main.py
+>python main.py
 
 ## Fonctionnalités
 1. **/help** : liste de toutes les commandes et leur utilité

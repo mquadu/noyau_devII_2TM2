@@ -4,4 +4,4 @@
 /news : Renvoie les actualités nationales. Un paramètre supplémentaire permet de préciser un pays
 /resto : Renvoie une liste des restaurants de LLN par défaut, d'une autre ville si précisée en paramètre.
 /cine : Renvoie une liste des cinémas de LLN par défaut, d'une autre ville si précisée en paramètre.
-/opinion : Permet à l'utilisateur de faire part de son opinion quant à l'utilisation du bot. Un second parmaètre lui permet de laisser un commentaire sous forme d'une chaine de caractères
+/opinion : Permet à l'utilisateur de faire part de son opinion quant à l'utilisation du bot. Un second paramètre lui permet de laisser un commentaire sous forme d'une chaine de caractères
