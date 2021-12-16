@@ -19,7 +19,6 @@ class MongoConnector:
         self.db = client["ephecom-2TM2"]
 
     def __enter__(self):
-
         return self
 
     def __exit__(self):
@@ -34,15 +33,16 @@ class Opinion(MongoConnector):
 
         try:
             with MongoConnector() as connector:
-                collection = connector.db["users"]
-                res = collection.find_one()
+                self.collection = connector.db["users"]
+                res = self.collection.findOne()
                 print(res)
         except Exception as e:
             print(e)
 
     def set_opinion(self):
 
-        return self.db.find_one()
+        self.collection.find({"name": "user1"})
+        self.collection.update_one({"name": "user1"}, {"$set": {"opinion": self.score}})
 
     """    
         self.__opinion = is_positif
@@ -73,6 +73,3 @@ class Opinion(MongoConnector):
 test_default = Opinion()
 test_modified = Opinion(is_positif=2, message="pas ouf")
     """
-
-
-
