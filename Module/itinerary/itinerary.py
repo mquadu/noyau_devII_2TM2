@@ -13,7 +13,13 @@ class Itinerary:
         self.__url_address_origin = config.itinerary_link(origin_address)
         self.__url_address_destination = config.itinerary_link(destination_address)
 
+<<<<<<< Updated upstream
     def get_intinerary(self):
+=======
+        self.get_itinerary()
+
+    def get_itinerary(self):
+>>>>>>> Stashed changes
         response_origin = requests.get(self.__url_address_origin).json()
         response_destination = requests.get(self.__url_address_destination).json()
 

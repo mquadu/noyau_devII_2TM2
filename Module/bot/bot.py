@@ -24,7 +24,7 @@ class Bot:
 
     def get_help(self):
         """
-        Renvoie toutes les commandes possible et leur description
+        Renvoie toutes les commandes possibles et leur description
         PRE : Prend un fichier contenant les commandes et leur description
         """
         try:
@@ -38,7 +38,7 @@ class Bot:
         Evalue la requête de l'utilisateur et appelle la classe correspondante
         """
 
-        # message est une liste contenant la commande et les paramètres que l'utilisateur à entrer
+        # message est une liste contenant la commande et les paramètres que l'utilisateur a introduit
 
         if isinstance(message, list):
             if message[0] == "/help":
