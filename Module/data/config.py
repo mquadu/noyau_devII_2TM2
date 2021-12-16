@@ -11,7 +11,7 @@ ROOT_DIR = "\\".join(sys.path[0].split('\\')[:])
 
 MODULE_DIR = os.path.join(ROOT_DIR, "Module")
 HELP_FILE = os.path.join(MODULE_DIR, "data\\help.txt")
-CERTIFICATE_FILE = os.path.join(MODULE_DIR, "data\\2TM2-G2.pem")
+CERTIFICATE_FILE = os.path.join(MODULE_DIR, "data\\X509-cert-5486301905818120966.pem")
 PUBLIC_DIR = os.path.join(ROOT_DIR, "public")
 VIEWS_DIR = os.path.join(PUBLIC_DIR, "views")
 SRC_DIR = os.path.join(ROOT_DIR, "src")
