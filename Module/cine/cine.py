@@ -3,10 +3,8 @@ import requests
 
 
 class Cine:
-    def __init__(self, origin='Louvain-la-Neuve', radius=5):
+    def __init__(self, origin='Louvain-la-Neuve'):
         self.__origin = origin
-
-        self.__radius = radius
         self.__url_origin = cine_link(self.origin)
 
     @property
@@ -18,8 +16,8 @@ class Cine:
         return self.__origin
 
     @origin.setter
-    def origin(self, origin_):
-        self.__origin = origin_
+    def origin(self, origin):
+        self.__origin = origin
 
     def get_cine(self):
         try:

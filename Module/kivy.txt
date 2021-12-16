@@ -16,5 +16,5 @@ https://stackoverflow.com/questions/42820798/how-to-add-background-colour-to-a-l
 
 https://kivy.org/doc/stable/api-kivy.uix.label.html
 
-#La propriété valign sur les label permettent de la centrer
+#La propriété valign sur les labels permet de les centrer
 

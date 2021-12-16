@@ -12,8 +12,11 @@ class Bot:
         self.__help = help_file
         self.__message = message.get_message(command_list)
         self.error = "Mauvaise syntaxe veuillez entrez /help pour plus de précision!"
+
+    def __str__(self):
         if self.__message:
             print(self.process_request(self.__message))
+            return self.process_request(self.__message)
 
     @property
     def help(self):
@@ -21,12 +24,12 @@ class Bot:
 
     def get_help(self):
         """
-        Renvoie toutes les commandes possible et leur description
+        Renvoie toutes les commandes possibles et leur description
         PRE : Prend un fichier contenant les commandes et leur description
         """
         try:
             with open(self.help) as help:
-                print(help.read())
+                return help.read()
         except FileNotFoundError:
             print("Fichier Introuvable")
 
@@ -35,7 +38,7 @@ class Bot:
         Evalue la requête de l'utilisateur et appelle la classe correspondante
         """
 
-        # message est une liste contenant la commande et les paramètres que l'utilisateur à entrer
+        # message est une liste contenant la commande et les paramètres que l'utilisateur a introduit
 
         if isinstance(message, list):
             if message[0] == "/help":
@@ -49,9 +52,9 @@ class Bot:
                 if len(message) > 3 or len(message) <= 1:
                     return self.error
                 if len(message) == 2:
-                    return Itinerary(destination_address=message[1])
+                    return Itinerary(destination_address=message[1]).get_intinerary()
                 if len(message) == 3:
-                    return Itinerary(message[1], message[2])
+                    return Itinerary(message[1], message[2]).get_intinerary()
 
             elif message[0] == "/news":
                 if len(message) > 2 or len(message) <= 0:

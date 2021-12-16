@@ -263,3 +263,6 @@ dmypy.json
 # Pyre type checker
 .pyre/
 >>>>>>> 751bf60 (Ajout mvp)
+img.png
+img_1.png
+img_2.png

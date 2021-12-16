@@ -13,9 +13,13 @@ class Itinerary:
         self.__url_address_origin = config.itinerary_link(origin_address)
         self.__url_address_destination = config.itinerary_link(destination_address)
 
-        self.get_intinerary()
-
+<<<<<<< Updated upstream
     def get_intinerary(self):
+=======
+        self.get_itinerary()
+
+    def get_itinerary(self):
+>>>>>>> Stashed changes
         response_origin = requests.get(self.__url_address_origin).json()
         response_destination = requests.get(self.__url_address_destination).json()
 
@@ -36,11 +40,12 @@ class Itinerary:
 
         steps = obj["features"][0]["properties"]["segments"][0]["steps"]
 
+        way = ""
         for i in range(len(steps)):
-            print(f"etape {i} :")
-
-            print("{0}\nDistance : {1} m\n".format(steps[i]["instruction"], steps[i]["distance"]))
-
+            way += f"etape {i} :"
+            way += f"{steps[i]['instruction']}\nDistance : {steps[i]['distance']} m\n"
+        print(type(way))
+        return way
 
 #Format de reponse
 var = {"type": "FeatureCollection", "features": [{"bbox": [4.605783, 50.667945, 4.630322, 50.716361], "type": "Feature",
