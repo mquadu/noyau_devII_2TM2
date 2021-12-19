@@ -1,7 +1,4 @@
-# Noé Libon connexion: mongosh "mongodb+srv://cluster0.5i6qo.gcp.mongodb.net/ephecom-2TM2?authSource=%24external
-# &authMechanism=MONGODB-X509" --tls --tlsCertificateKeyFile
-# C:\Users\noeli\Desktop\TI\Bloc2\Q1\Dev2\Projets\PythonChatBot\noyau_devII_2TM2\Module\data\X509-cert
-# -5486301905818120966.pem
+# Noé Libon
 
 from pymongo import MongoClient, collection
 from Module.data.config import *
