@@ -1,8 +1,8 @@
 import unittest
-from news import *
+from Module.news.news import *
 
 
-class NewsTest(unittest.TestCase):
+class TestNews(unittest.TestCase):
     def setUp(self) -> None:
         self.news1 = News('fr')
         self.news2 = News('tennis')

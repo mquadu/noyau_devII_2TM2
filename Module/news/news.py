@@ -1,7 +1,7 @@
 # Nathan Sancke
 import requests
 import datetime
-from ..data.config import news_link
+from Module.data.config import news_link
 
 class News:
     def __init__(self, arg: str = "be"):

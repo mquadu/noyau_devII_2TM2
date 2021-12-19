@@ -1,5 +1,5 @@
 import unittest
-from request import *
+from Module.request.request import *
 
 
 class TestRequest(unittest.TestCase):
@@ -7,7 +7,7 @@ class TestRequest(unittest.TestCase):
         self.request1 = Request("/news fr")
         self.request2 = Request("/autreCommande qqChose")
         self.request3 = Request("J'ai pas compris comment fonctionne le bot")
-        self.list = "/help", "/weather", "/itinerary", "/resto", "/cine", "/news", "/opinion"
+        self.command_list = ["/help", "/weather", "/itinerary", "/resto", "/cine", "/news", "/opinion"]
 
     def test__init__(self):
         self.assertEqual(self.request1.message, "/news fr")
@@ -15,10 +15,10 @@ class TestRequest(unittest.TestCase):
         self.assertEqual(self.request3.message, "J'ai pas compris comment fonctionne le bot")
 
     def test_get_message(self):
-        self.assertEqual(self.request1.get_message(self.list), self.request1.message.split())
-        self.assertEqual(self.request1.get_message(self.list),
+        self.assertEqual(self.request1.get_message(self.command_list), self.request1.message.split())
+        self.assertEqual(self.request1.get_message(self.command_list),
                          "Commande introuvable! Entrez /help pour voir la liste des commandes")
-        self.assertEqual(self.request1.get_message(self.list),
+        self.assertEqual(self.request1.get_message(self.command_list),
                          "Commande introuvable! Entrez /help pour voir la liste des commandes")
 
 
