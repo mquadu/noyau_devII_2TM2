@@ -49,7 +49,11 @@ class Bot:
                 return self.get_help()
 
             elif message[0] == "/weather":
-                return Weather().get_weather()
+                if len(message) == 2:
+                    return Weather(message[0]).get_weather()
+
+                if len(message) > 2:
+                    return self.error
 
             elif message[0] == "/itinerary":
                 # si on a plus que 2 paramètres , erreur

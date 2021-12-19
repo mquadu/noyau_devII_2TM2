@@ -7,7 +7,7 @@ from Module.data.config import weather_stack
 class Weather:
     def __init__(self, city: str = "Louvain-la-Neuve"):
         self.__city = city
-        self.__api_link = weather_stack(self.city)
+        self.__api_link = weather_stack(self.__city)
 
     @property
     def city(self):
