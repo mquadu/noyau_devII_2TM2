@@ -24,6 +24,7 @@ class Cine:
         """
         PRE : "/cine"
         POST : liste des cinemas du lieu passé en paramètre (par défaut LLN)
+        RAISES : exception : si pas de réponse à la requete
         """
         try:
             response = requests.get(self.url_origin).json()
