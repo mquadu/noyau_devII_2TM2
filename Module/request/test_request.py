@@ -2,7 +2,7 @@ import unittest
 from request import *
 
 
-class TestWeather(unittest.TestCase):
+class TestRequest(unittest.TestCase):
     def setUp(self) -> None:
         self.request1 = Request("/news fr")
         self.request2 = Request("/autreCommande qqChose")
@@ -14,7 +14,7 @@ class TestWeather(unittest.TestCase):
         self.assertEqual(self.request2.message, "/autreCommande qqChose")
         self.assertEqual(self.request3.message, "J'ai pas compris comment fonctionne le bot")
 
-    def test_get_weather(self):
+    def test_get_message(self):
         self.assertEqual(self.request1.get_message(self.list), self.request1.message.split())
         self.assertEqual(self.request1.get_message(self.list),
                          "Commande introuvable! Entrez /help pour voir la liste des commandes")
