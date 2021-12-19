@@ -3,7 +3,7 @@
 # C:\Users\noeli\Desktop\TI\Bloc2\Q1\Dev2\Projets\PythonChatBot\noyau_devII_2TM2\Module\data\X509-cert
 # -5486301905818120966.pem
 
-from pymongo import MongoClient
+from pymongo import MongoClient, collection
 from Module.data.config import *
 
 
@@ -26,10 +26,12 @@ class MongoConnector:
 
 
 class Opinion(MongoConnector):
-    def __init__(self, is_positif, message=""):
+    def __init__(self, is_positif, message="", username=""):
         super().__init__()
         self.score = is_positif
         self.message = message
+        self.username = username
+        self.id = 0
 
         try:
             with MongoConnector() as connector:
@@ -40,9 +42,17 @@ class Opinion(MongoConnector):
             print(e)
 
     def set_opinion(self):
+        
+        for elem in self.collection.find():
+            self.id = elem["_id"] + 1
 
-        self.collection.find({"name": "user1"})
-        self.collection.update_one({"name": "user1"}, {"$set": {"opinion": self.score}})
+        self.collection.insert_one({"_id": self.id})
+        self.collection.update_one({"_id": self.id}, {"$set": {"opinion": self.score}})
+        self.collection.update_one({"_id": self.id}, {"$set": {"message": self.message}})
+        self.collection.update_one({"_id": self.id}, {"$set": {"username": self.username}})
+        print(self.collection.find_one())
+        print(type(self.collection.find_one()))
+        print(self.collection.find_one()["_id"])
 
     """    
         self.__opinion = is_positif
