@@ -9,6 +9,7 @@
         - La liste de nos différents channels/groupes
         - La zone de contenu de nos channels après sélection d'un channel.
 """
+import sys
 
 from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen
@@ -19,8 +20,13 @@ from src.views.conversation import Conversation
 from src.views.teams_container import TeamsContainer
 from src.views.channels import ChannelsContainer
 
-Builder.load_file("{0}\\header.kv".format(VIEWS_DIR))
-Builder.load_file("{0}\\landing.kv".format(VIEWS_DIR))
+if sys.platform == "win32":
+    Builder.load_file("{0}\\header.kv".format(VIEWS_DIR))
+    Builder.load_file("{0}\\landing.kv".format(VIEWS_DIR))
+
+if sys.platform == "linux":
+    Builder.load_file("{0}/header.kv".format(VIEWS_DIR))
+    Builder.load_file("{0}/landing.kv".format(VIEWS_DIR))
 
 
 class LandingScreen(Screen):

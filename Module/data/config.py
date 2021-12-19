@@ -7,14 +7,24 @@ open_street_link = 'https://api.openrouteservice.org/v2/directions/driving-car?a
                    '=5b3ce3597851110001cf62481288a0a3b2fe4b43a2d8a701aaaa3436 '
 
 # Directory containing
-ROOT_DIR = "\\".join(sys.path[0].split('\\')[:])
+ROOT_DIR = ""
+if sys.platform == "win32":
+    ROOT_DIR = "\\".join(sys.path[0].split('\\')[:])
+if sys.platform == "linux":
+    ROOT_DIR = "/".join(sys.path[0].split("/")[:])
 
 MODULE_DIR = os.path.join(ROOT_DIR, "Module")
-HELP_FILE = os.path.join(MODULE_DIR, "data\\help.txt")
-CERTIFICATE_FILE = os.path.join(MODULE_DIR, "data\\db_key.pem")
+
+if sys.platform == "win32":
+    HELP_FILE = os.path.join(MODULE_DIR, "data\\help.txt")
+    CERTIFICATE_FILE = os.path.join(MODULE_DIR, "data\\db_key.pem")
+if sys.platform == "linux":
+    HELP_FILE = os.path.join(MODULE_DIR, "data/help.txt")
+    CERTIFICATE_FILE = os.path.join(MODULE_DIR, "data/db_key.pem")
 PUBLIC_DIR = os.path.join(ROOT_DIR, "public")
 VIEWS_DIR = os.path.join(PUBLIC_DIR, "views")
 SRC_DIR = os.path.join(ROOT_DIR, "src")
+
 
 # Link nominatim openstreetmap
 def itinerary_link(address):
@@ -24,8 +34,10 @@ def itinerary_link(address):
 def weather_stack(param):
     return f"http://api.weatherstack.com/current?access_key=4c53b8fcf4818536539b668a0247408c&query={param}"
 
+
 def news_link():
     return f"http://api.mediastack.com/v1/news?access_key=4a9e07d9cfd75c8d73c70f90ed4846f5"
+
 
 def cine_link(address):
     return f"https://nominatim.openstreetmap.org/search?osmtype=N&addressdetails=1&q=cinema+{address}&format=json"

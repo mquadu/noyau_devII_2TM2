@@ -5,6 +5,8 @@
     [BASE]
     Ce fichier représente une vue contenant la liste des "Team" disponible à l'utilisateur.
 """
+import sys
+
 from kivy.lang import Builder
 from kivy.uix.button import Button
 from kivy.uix.label import Label
@@ -18,9 +20,10 @@ from src.models.group import Group
 from src.models.screens_manager import ScreensManager
 from src.models.team import Team
 
-
-Builder.load_file("{0}\\teams.kv".format(VIEWS_DIR))
-
+if sys.platform == "win32":
+    Builder.load_file("{0}\\teams.kv".format(VIEWS_DIR))
+if sys.platform == "linux":
+    Builder.load_file("{0}/teams.kv".format(VIEWS_DIR))
 
 class TeamsListButton(Button):
     pass

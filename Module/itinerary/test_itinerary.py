@@ -1,4 +1,5 @@
 from unittest import TestCase
+import unittest
 
 from itinerary import Itinerary, ParameterException
 
@@ -28,9 +29,13 @@ class TestItinerary(TestCase):
 
     def test_process_request(self):
         # self.assertEqual(itinerary_lln_ottignies)
-        self.assertIsNone(self.itinerary_lln_ottignies.process_request("4.6128839", "50.6682012", "4.5690502", "50.666357"))
+        self.assertIsNone(
+            self.itinerary_lln_ottignies.process_request("4.6128839", "50.6682012", "4.5690502", "50.666357"))
 
     def test_get_itinerary(self):
         self.assertEqual(len(self.itinerary_lln_ottignies.get_itinerary()), 1201)
         self.assertEqual(len(self.itinerary_bruxelle_namur.get_itinerary()), 7322)
 
+
+if __name__ == "__main__":
+    unittest.main()

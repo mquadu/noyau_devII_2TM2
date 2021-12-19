@@ -6,6 +6,7 @@
     Ce fichier représente une zone de conversation.
 """
 import json
+import sys
 from datetime import datetime
 
 from kivy.lang import Builder
@@ -20,8 +21,11 @@ from Module.bot.bot import Bot
 from Module.request.request import Request
 from src.models.message import Message
 
+if sys.platform == "linux":
+    Builder.load_file("{0}/conversation.kv".format(VIEWS_DIR))
+if sys.platform == "win32":
+    Builder.load_file("{0}\\conversation.kv".format(VIEWS_DIR))
 
-Builder.load_file("{0}\\conversation.kv".format(VIEWS_DIR))
 
 
 class InputsContainer(BoxLayout):
@@ -58,7 +62,11 @@ class ConversationContainer(ScrollView):
         # time.sleep(1)
 
     def init_conversation(self):
-        conv_file_path = PUBLIC_DIR + "\\tmp_conversations\\basic.json"
+        conv_file_path = ""
+        if sys.platform == "win32":
+            conv_file_path = PUBLIC_DIR + "\\tmp_conversations\\basic.json"
+        if sys.platform == "linux":
+            conv_file_path = PUBLIC_DIR + "/tmp_conversations/basic.json"
         with open(conv_file_path) as json_file:
             conv = json.load(json_file)
 

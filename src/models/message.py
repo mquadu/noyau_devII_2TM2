@@ -6,6 +6,7 @@
     ----- CODE DE LA CLASSE A IMPLEMENTER -----
 """
 import json
+import sys
 
 from Module.data.config import PUBLIC_DIR
 
@@ -24,7 +25,11 @@ class Message:
         }
 
     def send_to_db(self):
-        conv_file_path = PUBLIC_DIR + "\\tmp_conversations\\basic.json"
+        conv_file_path = ""
+        if sys.platform == "win32":
+            conv_file_path = PUBLIC_DIR + "\\tmp_conversations\\basic.json"
+        if sys.platform == "linux":
+            conv_file_path = PUBLIC_DIR + "/tmp_conversations/basic.json"
         with open(conv_file_path) as json_file:
             conv = json.load(json_file)
 

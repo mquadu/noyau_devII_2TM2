@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import os
+import sys
+
 import kivy
 """
     [BASE]
@@ -21,7 +23,10 @@ from src.models.screens_manager import ScreensManager
 
 kivy.require('2.0.0')
 
-Builder.load_file("{0}\\channel.kv".format(VIEWS_DIR))
+if sys.platform == "win32":
+    Builder.load_file("{0}\\channel.kv".format(VIEWS_DIR))
+if sys.platform == "linux":
+    Builder.load_file("{0}/channel.kv".format(VIEWS_DIR))
 
 
 class GroupTitleRow(BoxLayout):

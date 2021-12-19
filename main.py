@@ -1,10 +1,10 @@
 import os
+import sys
+
 import kivy
 
 from src.models.mongo_connector import MongoConnector
 from src.models.screens_manager import ScreensManager
-
-
 
 from kivy.app import App
 from kivy.lang import Builder
@@ -13,7 +13,10 @@ from Module.data.config import VIEWS_DIR
 kivy.require('2.0.0')
 os.environ['KIVY_GL_BACKEND'] = 'angle_sdl2'
 
-Builder.load_file("{0}\\common.kv".format(VIEWS_DIR))
+if sys.platform == "win32":
+    Builder.load_file("{0}\\common.kv".format(VIEWS_DIR))
+if sys.platform == "linux":
+    Builder.load_file("{0}/common.kv".format(VIEWS_DIR))
 
 
 class ChatBot(App):
@@ -32,11 +35,6 @@ class ChatBot(App):
 
 if __name__ == "__main__":
     ChatBot().run()
-
-
-
-
-
 
 # add the following 2 lines to solve OpenGL 2.0 bug
 # from kivy import Config
