@@ -1,5 +1,5 @@
 # Marina
-from ..data.config import cine_link
+from Module.data.config import cine_link
 import requests
 
 
