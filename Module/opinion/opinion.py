@@ -1,7 +1,7 @@
 # Noé Libon
 
-from pymongo import MongoClient, collection
-from Module.data.config import *
+from pymongo import MongoClient
+from Module.data.config import CERTIFICATE_FILE
 
 
 class MongoConnector:
