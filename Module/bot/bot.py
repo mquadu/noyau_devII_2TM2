@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Module.weather.weather import Weather
 from Module.itinerary.itinerary import Itinerary
 from Module.news.news import News
@@ -15,8 +16,11 @@ class Bot:
         self.error = "Mauvaise syntaxe veuillez entrez /help pour plus de précision!"
 
     def __str__(self):
-        if self.__message:
+        if isinstance(self.__message, list):
             return self.process_request(self.__message)
+        else:
+            print("ici on est dans le str bot", self.__message)
+            return self.__message
 
     @property
     def help(self):
@@ -39,7 +43,7 @@ class Bot:
         """
 
         # message est une liste contenant la commande et les paramètres que l'utilisateur a introduit
-        print("A ce niveau" , message)
+
         if isinstance(message, list):
             if message[0] == "/help":
                 return self.get_help()
@@ -88,6 +92,6 @@ class Bot:
                     return Opinion(message[1]).set_opinion()
                 if len(message) > 2:
                     print("je suis dans de dernier if l'opinion du bot")
-                    return Opinion(message[1], message[2]).set_opinion()
+                    return Opinion(message[1], message[2], message[3]).set_opinion()
         elif isinstance(message, str):
             return message
