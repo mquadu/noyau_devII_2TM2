@@ -3,6 +3,10 @@ from Module.data.config import cine_link
 import requests
 
 
+class RequestError(Exception):
+    pass
+
+
 class Cine:
     def __init__(self, origin='Louvain-la-Neuve'):
         self.__origin = origin
@@ -11,6 +15,7 @@ class Cine:
     @property
     def url_origin(self):
         return self.__url_origin
+
 
     @property
     def origin(self):
@@ -26,17 +31,18 @@ class Cine:
         POST : liste des cinemas du lieu passé en paramètre (par défaut LLN)
         RAISES : exception : si pas de réponse à la requete
         """
-        try:
-            response = requests.get(self.url_origin).json()
-        except ValueError:
-            return "Can't fetch Cinema"
+
+        response = requests.get(self.url_origin).json()
+
+        if not len(response):
+            print("except connection")
+            raise RequestError("Can't fetch Cinema")
 
         cine = ""
         for i in response:
             cine += "\n"
             for address in i["address"]:
                 if address not in ["country", "country_code", "region", "postcode", "county"]:
-                    cine += f"{i['address'][address]} "
+                    cine += f"{i['address'][address]}"
             cine += "\n"
         return cine
-

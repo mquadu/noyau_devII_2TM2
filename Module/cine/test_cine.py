@@ -1,16 +1,13 @@
-from django.http import HttpResponse
 import unittest
-from cine import Cine
+from cine import Cine, RequestError
 import requests
-from Module.data.config import cine_link
 
 
 class TestCine(unittest.TestCase):
     def setUp(self) -> None:
-        self.cine1 = Cine()
-        url_origin = "https://nominatim.openstreetmap.org/search?osmtype=N&addressdetails" \
-                     "=1&q=cinema+Louvain-la-Neuve&format=json"
-        self.response = requests.get(url_origin).json()
+        self.cine1 = Cine('Louvain-la-Neuve')
+        self.cine2 = Cine('Rixensart')
+        self.cine3 = Cine('patate')
 
     def test_url(self):
         self.assertEqual(Cine('Louvain-la-Neuve').url_origin,
@@ -21,7 +18,10 @@ class TestCine(unittest.TestCase):
                          "=1&q=cinema+Namur&format=json")
 
     def test_get_cine(self):
-        self.assertEqual(self.response.status_code, 200)
-        self.assertRaises(ConnectionError, Cine, Cine.origin)
+        self.assertRaises(RequestError, self.cine3.get_cine)
+        self.assertEqual(len(self.cine2.get_cine()), 76)
 
+
+if __name__ == '__main__':
+    unittest.main()
 

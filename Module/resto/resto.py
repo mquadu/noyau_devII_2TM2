@@ -1,10 +1,13 @@
 # Marina
-from ..data.config import resto_link
+from Module.data.config import resto_link
 import requests
 
 
-class Resto:
+class RequestError(Exception):
+    pass
 
+
+class Resto:
     def __init__(self, origin='Louvain-la-Neuve'):
         self.__origin = origin
         self.__url_origin = resto_link(self.__origin)
@@ -25,17 +28,20 @@ class Resto:
         """
         PRE : "/resto"
         POST : liste des restos du lieu passé en paramètre (par défaut LLN)
+        RAISES : exception : si pas de réponse à la requete
         """
-        try:
-            response = requests.get(self.url_origin).json()
-        except ValueError:
-            return "Can't fetch Restaurant"
+
+        response = requests.get(self.url_origin).json()
+
+        if not len(response):
+            print("except connection")
+            raise RequestError("Can't fetch Restaurant")
 
         restaurant = ""
         for i in response:
             restaurant += "\n"
             for address in i["address"]:
                 if address not in ["country", "country_code", "region", "postcode", "county"]:
-                    restaurant += f"{i['address'][address]} "
+                    restaurant += f"{i['address'][address]}"
             restaurant += "\n"
         return restaurant

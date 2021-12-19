@@ -1,26 +1,26 @@
-from unittest import TestCase
-import resto
+import unittest
+from resto import Resto, RequestError
 import requests
-from ..data.config import cine_link
 
 
-class TestResto(TestCase):
+class TestResto(unittest.TestCase):
     def setUp(self) -> None:
-        url_origin = "https://nominatim.openstreetmap.org/search?osmtype=N&addressdetails" \
-                     "=1&q=cinema+Louvain-la-Neuve&format=json"
-        self.response = requests.get(url_origin).json()
+        self.resto1 = Resto('Louvain-la-Neuve')
+        self.resto2 = Resto('Genappe')
+        self.resto3 = Resto('nimportekoi')
 
     def test_url(self):
-        self.assertEqual(resto.Resto('Louvain-la-Neuve'),
+        self.assertEqual(Resto('Louvain-la-Neuve').url_origin,
                          "https://nominatim.openstreetmap.org/search?osmtype=N&addressdetails"
-                         "=1&q=cinema+louvain-la-neuve&format=json")
-        self.assertEqual(resto.Resto('Namur'),
+                         "=1&q=restaurant+Louvain-la-Neuve&format=json")
+        self.assertEqual(Resto('Genappe').url_origin,
                          "https://nominatim.openstreetmap.org/search?osmtype=N&addressdetails"
-                         "=1&q=cinema+Namur&format=json")
+                         "=1&q=restaurant+Genappe&format=json")
 
-    def test_get_cine(self):
-        self.assertEqual(self.response.status_code, 200)
-        self.assertRaises(ConnectionError, resto.Resto, resto.Resto.origin)
+    def test_get_resto(self):
+        self.assertRaises(RequestError, self.resto3.get_resto)
+        self.assertEqual(len(self.resto2.get_resto()), 599)
 
-    if __name__ == '__main__':
-        unittest.main()
+
+if __name__ == '__main__':
+    unittest.main()
