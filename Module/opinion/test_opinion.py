@@ -10,3 +10,4 @@ class TestOpinion(TestCase):
 
     def test_init(self):
         self.assertEqual(self.first_op, "Choisissez plutôt un nombre entre 0 et 5 svp.")
+        
