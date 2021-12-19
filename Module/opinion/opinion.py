@@ -49,5 +49,6 @@ class Opinion(MongoConnector):
             self.collection.update_one({"_id": self.id}, {"$set": {"opinion": self.score}})
             self.collection.update_one({"_id": self.id}, {"$set": {"message": self.message}})
             self.collection.update_one({"_id": self.id}, {"$set": {"username": self.username}})
+            return "Votre avis a bien été envoyé. Nous en tiendrons compte !"
         else:
             return self.error
