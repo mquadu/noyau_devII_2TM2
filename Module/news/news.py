@@ -1,7 +1,7 @@
 # Nathan Sancke
 import requests
 import datetime
-
+from ..data.config import news_link
 
 class News:
     def __init__(self, arg: str = "be"):
@@ -11,7 +11,7 @@ class News:
         self.__country = "&countries="
         self.__keyword = "&keywords="
         self.__languages = "&languages=fr"
-        self.__api_link = "http://api.mediastack.com/v1/news?access_key=4a9e07d9cfd75c8d73c70f90ed4846f5"
+        self.__api_link = news_link()
 
     @property
     def date(self):
@@ -28,6 +28,10 @@ class News:
     @property
     def api_link(self):
         return self.__api_link
+
+    @api_link.setter
+    def api_link(self, new_link):
+        self.__api_link = new_link
 
     @property
     def languages(self):
@@ -70,7 +74,7 @@ class News:
         current = reponse.json()
 
         if current['pagination']['count'] == 0:
-            print("Désolé nous n'avons pas trouvé d'article en français pour le pays ou le sujet sélectionné")
+            return "Désolé nous n'avons pas trouvé d'article en français pour le pays ou le sujet sélectionné"
 
         result = ""
         for i in range(current['pagination']['count']):

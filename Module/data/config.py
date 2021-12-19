@@ -24,6 +24,8 @@ def itinerary_link(address):
 def weather_stack(param):
     return f"http://api.weatherstack.com/current?access_key=4c53b8fcf4818536539b668a0247408c&query={param}"
 
+def news_link():
+    return f"http://api.mediastack.com/v1/news?access_key=4a9e07d9cfd75c8d73c70f90ed4846f5"
 
 def cine_link(address):
     return f"https://nominatim.openstreetmap.org/search?osmtype=N&addressdetails=1&q=cinema+{address}&format=json"
