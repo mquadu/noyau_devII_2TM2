@@ -29,6 +29,10 @@ class News:
     def api_link(self):
         return self.__api_link
 
+    @api_link.setter
+    def api_link(self, new_link):
+        self.__api_link = new_link
+
     @property
     def languages(self):
         return self.__languages
@@ -70,7 +74,7 @@ class News:
         current = reponse.json()
 
         if current['pagination']['count'] == 0:
-            print("Désolé nous n'avons pas trouvé d'article en français pour le pays ou le sujet sélectionné")
+            return "Désolé nous n'avons pas trouvé d'article en français pour le pays ou le sujet sélectionné"
 
         result = ""
         for i in range(current['pagination']['count']):
