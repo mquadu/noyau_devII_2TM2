@@ -16,9 +16,9 @@ class TestRequest(unittest.TestCase):
 
     def test_get_message(self):
         self.assertEqual(self.request1.get_message(self.command_list), self.request1.message.split())
-        self.assertEqual(self.request1.get_message(self.command_list),
+        self.assertEqual(self.request2.get_message(self.command_list),
                          "Commande introuvable! Entrez /help pour voir la liste des commandes")
-        self.assertEqual(self.request1.get_message(self.command_list),
+        self.assertEqual(self.request3.get_message(self.command_list),
                          "Commande introuvable! Entrez /help pour voir la liste des commandes")
 
 
