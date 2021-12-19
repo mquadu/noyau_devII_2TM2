@@ -1,6 +1,7 @@
 from unittest import TestCase
-from itinerary import Itinerary, ParameterException
+
 from Module.data.itinerary_json import itinerary_lln_ottignies
+from itinerary import Itinerary, ParameterException
 
 
 class TestItinerary(TestCase):
@@ -21,19 +22,16 @@ class TestItinerary(TestCase):
                          'https://nominatim.openstreetmap.org/search/bruxelle?format=json', "Mauvais Lien")
 
     def test_url_address_destination(self):
-
         self.assertEqual(self.itinerary_lln_ottignies.url_address_destination,
                          'https://nominatim.openstreetmap.org/search/ottignies?format=json', "Mauvais lien")
         self.assertEqual(self.itinerary_bruxelle_namur.url_address_destination,
                          'https://nominatim.openstreetmap.org/search/namur?format=json', "Mauvais Lien")
 
     def test_process_request(self):
-        request = self.itinerary_lln_ottignies.process_request()
-        self.assertEqual(self.itinerary_lln_ottignies.process_request(), )
+        # self.assertEqual(itinerary_lln_ottignies)
+        self.assertIsNone(self.itinerary_lln_ottignies.process_request("4.6128839", "50.6682012", "4.5690502", "50.666357"))
 
     def test_get_itinerary(self):
-
-        self.assertEqual(self.itinerary_lln_ottignies.get_itinerary(), itinerary_lln_ottignies)
-
-
+        self.assertEqual(len(self.itinerary_lln_ottignies.get_itinerary()), 1201)
+        self.assertEqual(len(self.itinerary_bruxelle_namur.get_itinerary()), 7322)
 

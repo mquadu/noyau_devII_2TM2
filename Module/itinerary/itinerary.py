@@ -53,8 +53,7 @@ class Itinerary:
         self.process_request(response_origin[0]["lon"], response_origin[0]["lat"],
                              response_destination[0]["lon"], response_destination[0]["lat"])
 
-        print(response_origin[0]["lon"], response_origin[0]["lat"],
-              response_destination[0]["lon"], response_destination[0]["lat"])
+        print(self.response)
 
         steps = self.response["features"][0]["properties"]["segments"][0]["steps"]
 
