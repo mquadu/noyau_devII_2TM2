@@ -30,7 +30,12 @@ class Resto:
             response = requests.get(self.url_origin).json()
         except ValueError:
             return "Can't fetch Restaurant"
+
         restaurant = ""
         for i in response:
-            restaurant += f"{i['display_name']}\n"
+            restaurant += "\n"
+            for address in i["address"]:
+                if address not in ["country", "country_code", "region", "postcode", "county"]:
+                    restaurant += f"{i['address'][address]} "
+            restaurant += "\n"
         return restaurant

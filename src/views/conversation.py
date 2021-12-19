@@ -96,12 +96,13 @@ class Conversation(RelativeLayout):
             if txt[0] == "/":
                 command_list = ["/help", "/weather", "/itinerary", "/resto", "/cine", "/news", "/opinion"]
                 message = Request(txt)
-                print(Bot(message, command_list))
+                # print(Bot(message, command_list))
+                print(message)
                 response_from_bot = str(Bot(message, command_list))
                 print(response_from_bot)
                 # response_from_bot = bot.result
                 msg_res = Message(datetime.now(), response_from_bot, "E-Bot")
-                self.messages_container.add_message(msg_res, pos="right")
+                self.messages_container.add_message(msg_res, pos="left")
 
             self.inputs_container.ids.message_input.text = ""
 
