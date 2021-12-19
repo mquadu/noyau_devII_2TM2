@@ -19,7 +19,6 @@ Les demandes concernent la météo, la recherche d'un itinéraire, les actualit�
 1. **/help** : liste de toutes les commandes et leur utilité
 2. **/weather** : température, probabilité de pluie et prévisions (par défaut : LLN)
    * un premier paramètre ***ville*** : choix de la localité
-   * un deuxième paramètre ***chiffre*** : prévisions sur le nombre de jours (de 1 à 7)
 3. **/news** : actualités nationales (par défaut)
    * un paramètre ***pays*** : actualités du pays défini
 4. **/itinerary** : lien openstreetmap du trajet souhaité
