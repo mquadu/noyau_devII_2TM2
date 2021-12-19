@@ -49,6 +49,8 @@ class Bot:
                 return self.get_help()
 
             elif message[0] == "/weather":
+                if len(message) == 1:
+                    return Weather().get_weather()
                 if len(message) == 2:
                     return Weather(message[0]).get_weather()
 
