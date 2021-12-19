@@ -1,6 +1,5 @@
 from unittest import TestCase
 
-from Module.data.itinerary_json import itinerary_lln_ottignies
 from itinerary import Itinerary, ParameterException
 
 
