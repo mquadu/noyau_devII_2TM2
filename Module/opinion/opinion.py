@@ -32,6 +32,7 @@ class Opinion(MongoConnector):
         self.message = message
         self.username = username
         self.id = 0
+        self.error = "Choisissez plutôt un nombre entre 0 et 5 svp."
 
         try:
             with MongoConnector() as connector:
@@ -43,43 +44,13 @@ class Opinion(MongoConnector):
 
     def set_opinion(self):
         
-        for elem in self.collection.find():
-            self.id = elem["_id"] + 1
+        if 0 <= int(self.score) <= 5:
+            for elem in self.collection.find():
+                self.id = elem["_id"] + 1
 
-        self.collection.insert_one({"_id": self.id})
-        self.collection.update_one({"_id": self.id}, {"$set": {"opinion": self.score}})
-        self.collection.update_one({"_id": self.id}, {"$set": {"message": self.message}})
-        self.collection.update_one({"_id": self.id}, {"$set": {"username": self.username}})
-        print(self.collection.find_one())
-        print(type(self.collection.find_one()))
-        print(self.collection.find_one()["_id"])
-
-    """    
-        self.__opinion = is_positif
-        self.__message = message
-        self.send_db()
-
-
-    def send_db(self):
-        client = MongoClient("mongodb+srv://cluster0.5i6qo.gcp.mongodb.net/ephecom-2TM2?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority&ssl_cert_reqs=CERT_NONE")
-        db = client["ephecom-2TM2"]
-        collection_opinions = db.opinions
-        personal_opinion = {
-                "opinion" : self.__opinion,
-                "message" : self.__message
-                }
-        collection_opinions.insert_one(personal_opinion)
-        print(client.list_database_names())
-        db_list = client.list_database_names()
-        if "ephecom-2TM2" in db_list:
-            print("The database exists.")
+            self.collection.insert_one({"_id": self.id})
+            self.collection.update_one({"_id": self.id}, {"$set": {"opinion": self.score}})
+            self.collection.update_one({"_id": self.id}, {"$set": {"message": self.message}})
+            self.collection.update_one({"_id": self.id}, {"$set": {"username": self.username}})
         else:
-            print("Doesn't exists ! ")
-
-
-
-
-#test
-test_default = Opinion()
-test_modified = Opinion(is_positif=2, message="pas ouf")
-    """
+            return self.error
