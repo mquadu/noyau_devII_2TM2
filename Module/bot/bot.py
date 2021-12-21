@@ -97,7 +97,9 @@ class Bot:
                 if len(message) == 2:
                     return Opinion(message[1]).set_opinion()
                 if len(message) > 2:
-                    print("je suis dans de dernier if l'opinion du bot")
-                    return Opinion(message[1], message[2], message[3]).set_opinion()
+                    commentaire = ""
+                    for i in range(1, len(message)):
+                        commentaire += message[i] + " "
+                    return Opinion(message[1], commentaire).set_opinion()
         elif isinstance(message, str):
             return message

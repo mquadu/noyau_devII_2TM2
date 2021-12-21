@@ -23,11 +23,10 @@ class MongoConnector:
 
 
 class Opinion(MongoConnector):
-    def __init__(self, is_positif, message="", username=""):
+    def __init__(self, is_positif, message=""):
         super().__init__()
         self.score = is_positif
         self.message = message
-        self.username = username
         self.id = 0
         self.error = "Choisissez plutôt un nombre entre 0 et 5 svp."
 
@@ -48,7 +47,6 @@ class Opinion(MongoConnector):
             self.collection.insert_one({"_id": self.id})
             self.collection.update_one({"_id": self.id}, {"$set": {"opinion": self.score}})
             self.collection.update_one({"_id": self.id}, {"$set": {"message": self.message}})
-            self.collection.update_one({"_id": self.id}, {"$set": {"username": self.username}})
             return "Votre avis a bien été envoyé. Nous en tiendrons compte !"
         else:
             return self.error
