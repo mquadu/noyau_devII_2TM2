@@ -10,8 +10,9 @@ from kivy.app import App
 from kivy.lang import Builder
 from Module.data.config import VIEWS_DIR
 
-kivy.require('2.0.0')
-os.environ['KIVY_GL_BACKEND'] = 'angle_sdl2'
+if sys.platform == "win32":
+    kivy.require('2.0.0')
+    os.environ['KIVY_GL_BACKEND'] = 'angle_sdl2'
 
 if sys.platform == "win32":
     Builder.load_file("{0}\\common.kv".format(VIEWS_DIR))

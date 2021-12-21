@@ -1,7 +1,7 @@
 from unittest import TestCase
 import unittest
 
-from itinerary import Itinerary, ParameterException
+from Module.itinerary.itinerary import Itinerary, ParameterException
 
 
 class TestItinerary(TestCase):
