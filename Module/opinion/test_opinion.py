@@ -1,7 +1,5 @@
 import unittest
 from Module.opinion.opinion import *
-import pymongo
-
 
 
 class TestOpinion(unittest.TestCase, MongoConnector):
@@ -30,7 +28,6 @@ class TestOpinion(unittest.TestCase, MongoConnector):
         self.elem = self.collection.find().limit(1).sort([("$natural", -1)])
         self.assertEqual(self.elem[0], self.rep1)
 
-
         self.assertEqual(Opinion(is_positif=5).set_opinion(),
                          "Votre avis a bien été envoyé. Nous en tiendrons compte !")
         self.elem = self.collection.find().limit(1).sort([("$natural", -1)])
@@ -44,6 +41,7 @@ class TestOpinion(unittest.TestCase, MongoConnector):
         self.collection.delete_one(self.rep1)
         self.collection.delete_one(self.rep2)
         self.collection.delete_one(self.rep3)
+
 
 if __name__ == '__main__':
     unittest.main()
