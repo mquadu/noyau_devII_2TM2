@@ -1,7 +1,7 @@
 import unittest
 from Module.opinion.opinion import *
 import pymongo
-from Module.data.config import CERTIFICATE_FILE
+
 
 
 class TestOpinion(unittest.TestCase, MongoConnector):
@@ -14,29 +14,36 @@ class TestOpinion(unittest.TestCase, MongoConnector):
         except Exception as e:
             print(e)
 
+        self.id = 0
         for elem in self.collection.find():
             self.id = elem["_id"]
 
-        self.rep1 = {'_id': 0, 'opinion': '4', 'message': "c'est trop bien"}
-        self.rep2 = {'_id': 1, 'opinion': '5', 'message': ""}
-        self.rep3 = {'_id': 2, 'opinion': '1', 'message': "nul"}
+        self.rep1 = {'_id': self.id + 1, 'opinion': 4, 'message': "c'est trop bien"}
+        self.rep2 = {'_id': self.id + 2, 'opinion': 5, 'message': ""}
+        self.rep3 = {'_id': self.id + 3, 'opinion': 1, 'message': "nul"}
 
     def test_set_opinion(self):
         self.assertEqual(Opinion(is_positif=12).set_opinion(), "Choisissez plutôt un nombre entre 0 et 5 svp.")
 
         self.assertEqual(Opinion(is_positif=4, message="c'est trop bien").set_opinion(),
                          "Votre avis a bien été envoyé. Nous en tiendrons compte !")
-        self.collection.delete_one().limit(1).sort([('$natural',-1)])
+        self.elem = self.collection.find().limit(1).sort([("$natural", -1)])
+        self.assertEqual(self.elem[0], self.rep1)
+
 
         self.assertEqual(Opinion(is_positif=5).set_opinion(),
                          "Votre avis a bien été envoyé. Nous en tiendrons compte !")
-        self.assertEqual(self.collection.findOne(sort=[('_id', pymongo.DESCENDING)]), self.rep2)
-        self.collection.delete_one(sort=[('_id', pymongo.DESCENDING)])
+        self.elem = self.collection.find().limit(1).sort([("$natural", -1)])
+        self.assertEqual(self.elem[0], self.rep2)
 
         self.assertEqual(Opinion(is_positif=1, message="nul").set_opinion(),
                          "Votre avis a bien été envoyé. Nous en tiendrons compte !")
-        self.assertEqual(self.collection.findOne(sort=[('_id', pymongo.DESCENDING)]), self.rep3)
-        self.collection.delete_one(sort=[('_id', pymongo.DESCENDING)])
+        self.elem = self.collection.find().limit(1).sort([("$natural", -1)])
+        self.assertEqual(self.elem[0], self.rep3)
+
+        self.collection.delete_one(self.rep1)
+        self.collection.delete_one(self.rep2)
+        self.collection.delete_one(self.rep3)
 
 if __name__ == '__main__':
     unittest.main()
