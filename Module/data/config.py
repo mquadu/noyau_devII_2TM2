@@ -5,13 +5,16 @@ import os
 headers = {'Accept': 'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8', }
 open_street_link = 'https://api.openrouteservice.org/v2/directions/driving-car?api_key' \
                    '=5b3ce3597851110001cf62481288a0a3b2fe4b43a2d8a701aaaa3436 '
-
+# "\\".join(
 # Directory containing
 ROOT_DIR = ""
 if sys.platform == "win32":
-    ROOT_DIR = "\\".join(sys.path[0].split('\\')[:])
+    index_root = sys.path[0].split('\\').index("noyau_devII_2TM2")
+    ROOT_DIR = "\\".join(sys.path[0].split("\\")[:index_root+1])
+
 if sys.platform == "linux":
-    ROOT_DIR = "/".join(sys.path[0].split("/")[:])
+    index_root = sys.path[0].split('/').index("noyau_devII_2TM2")
+    ROOT_DIR = "/".join(sys.path[0].split("/")[:index_root + 1])
 
 MODULE_DIR = os.path.join(ROOT_DIR, "Module")
 

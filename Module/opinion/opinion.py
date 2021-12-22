@@ -1,7 +1,7 @@
 # Noé Libon
-
+import sys
 from pymongo import MongoClient
-from Module.data.config import CERTIFICATE_FILE
+from Module.data.config import CERTIFICATE_FILE, MODULE_DIR
 
 
 class ParameterException(Exception):
@@ -10,12 +10,12 @@ class ParameterException(Exception):
 
 class MongoConnector:
     def __init__(self):
-        certificat_path = CERTIFICATE_FILE
         uri = "mongodb+srv://cluster0.5i6qo.gcp.mongodb.net/ephecom-2TM2?authSource=%24external&authMechanism=MONGODB" \
               "-X509&retryWrites=true&w=majority&ssl_cert_reqs=CERT_NONE"
+
         client = MongoClient(uri,
                              tls=True,
-                             tlsCertificateKeyFile=certificat_path)
+                             tlsCertificateKeyFile=CERTIFICATE_FILE)
         self.db = client["ephecom-2TM2"]
 
     def __enter__(self):
