@@ -8,6 +8,10 @@ from Module.data.config import HELP_FILE
 from Module.opinion.opinion import Opinion
 
 
+class ParameterException(Exception):
+    pass
+
+
 class Bot:
     # Mettre le chemin du fichier dans un fichier de configuration
     def __init__(self, message, command_list: list, help_file=HELP_FILE):
@@ -28,7 +32,11 @@ class Bot:
     def get_help(self, _help):
         """
         Renvoie toutes les commandes possibles et leur description
-        PRE : Prend un fichier contenant les commandes et leur description
+
+        PRE : Un fichier contenant les commandes et leur description
+        POST : Chaines de caractère des commandes utilisables et leur description
+        RAISES : Exception : si pas de réponse à la requete
+
         """
         try:
             with open(_help) as help_:
@@ -39,6 +47,10 @@ class Bot:
     def process_request(self, message):
         """
         Evalue la requête de l'utilisateur et appelle la classe correspondante
+
+        PRE : liste contenant la commande et les paramètres
+        POST : les réponses adéquates en fonction des modules appelés
+        RAISES : Exception : si pas de réponse à la requete
         """
 
         # message est une liste contenant la commande et les paramètres que l'utilisateur a introduit

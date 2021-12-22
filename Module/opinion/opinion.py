@@ -4,8 +4,11 @@ from pymongo import MongoClient
 from Module.data.config import CERTIFICATE_FILE
 
 
-class MongoConnector:
+class ParameterException(Exception):
+    pass
 
+
+class MongoConnector:
     def __init__(self):
         certificat_path = CERTIFICATE_FILE
         uri = "mongodb+srv://cluster0.5i6qo.gcp.mongodb.net/ephecom-2TM2?authSource=%24external&authMechanism=MONGODB" \
@@ -39,7 +42,15 @@ class Opinion(MongoConnector):
             print(e)
 
     def set_opinion(self):
-        
+        """
+        Permet à l'utilisateur de coter les fonctionnalités
+
+        PRE : "/opinion"
+        POST : Une chaîne de caractères d'accusé de réception
+        RAISES : Exception : si pas de réponse à la requête
+
+        """
+
         if 0 <= int(self.score) <= 5:
             for elem in self.collection.find():
                 self.id = elem["_id"] + 1

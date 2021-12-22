@@ -3,6 +3,11 @@ import requests
 import datetime
 from Module.data.config import news_link
 
+
+class ParameterException(Exception):
+    pass
+
+
 class News:
     def __init__(self, arg: str = "be"):
         self.__argument = arg
@@ -59,6 +64,8 @@ class News:
 
         PRE : "/news"
         POST : Renvoie une chaine contenant les news d'un pays ou d'un sujet
+        RAISES : Exception : si pas de réponse à la requête
+
         """
         if len(self.argument) == 2:
             self.country = self.country + self.argument
