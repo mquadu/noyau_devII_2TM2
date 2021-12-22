@@ -1,5 +1,6 @@
 import unittest
 from Module.request.request import *
+from Module.data.config import COMMAND_LIST
 
 
 class TestRequest(unittest.TestCase):
@@ -7,7 +8,7 @@ class TestRequest(unittest.TestCase):
         self.request1 = Request("/news fr")
         self.request2 = Request("/autreCommande qqChose")
         self.request3 = Request("J'ai pas compris comment fonctionne le bot")
-        self.command_list = ["/help", "/weather", "/itinerary", "/resto", "/cine", "/news", "/opinion"]
+        self.command_list = COMMAND_LIST
 
     def test__init__(self):
         self.assertEqual(self.request1.message, "/news fr")

@@ -22,14 +22,3 @@ class Request:
         else:
             self.set_message("Commande introuvable! Entrez /help pour voir la liste des commandes")
             return self.message
-
-        # elif rep_split[0] == "/weather":
-        #
-        #     if len(rep_split) == 2:
-        #         commande = Commande(rep_split[1]).weather
-        #         print(commande)
-        #     else:
-        #         commande = Commande().weather
-        #         print(commande)
-        # else:
-        #     print("Erreur dans la weather!")
