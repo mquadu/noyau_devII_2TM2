@@ -16,7 +16,7 @@ from kivy.uix.relativelayout import RelativeLayout
 from kivy.uix.scrollview import ScrollView
 
 from Module.data.config import VIEWS_DIR
-from Module.data.config import PUBLIC_DIR
+from Module.data.config import PUBLIC_DIR, COMMAND_LIST
 from Module.bot.bot import Bot
 from Module.request.request import Request
 from src.models.message import Message
@@ -25,7 +25,6 @@ if sys.platform == "linux":
     Builder.load_file("{0}/conversation.kv".format(VIEWS_DIR))
 if sys.platform == "win32":
     Builder.load_file("{0}\\conversation.kv".format(VIEWS_DIR))
-
 
 
 class InputsContainer(BoxLayout):
@@ -102,15 +101,11 @@ class Conversation(RelativeLayout):
             msg.send_to_db()
 
             if txt[0] == "/":
-                command_list = ["/help", "/weather", "/itinerary", "/resto", "/cine", "/news", "/opinion"]
                 message = Request(txt)
-                # print(Bot(message, command_list))
-                print(message)
-                response_from_bot = str(Bot(message, command_list))
-                print(response_from_bot)
-                # response_from_bot = bot.result
+
+                response_from_bot = str(Bot(message, COMMAND_LIST))
+
                 msg_res = Message(datetime.now(), response_from_bot, "E-Bot")
                 self.messages_container.add_message(msg_res, pos="left")
 
             self.inputs_container.ids.message_input.text = ""
-

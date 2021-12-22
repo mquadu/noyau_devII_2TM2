@@ -3,7 +3,7 @@ from Module.data.config import cine_link
 import requests
 
 
-class RequestError(Exception):
+class ParameterException(Exception):
     pass
 
 
@@ -27,9 +27,12 @@ class Cine:
 
     def get_cine(self):
         """
+        Renvoie une liste de cinémas
+
         PRE : "/cine"
-        POST : liste des cinemas du lieu passé en paramètre (par défaut LLN)
-        RAISES : exception : si pas de réponse à la requete
+        POST : liste des cinemas de la localité passée en paramètre (par défaut LLN)
+        RAISES : Exception : si pas de réponse à la requete
+
         """
 
         response = requests.get(self.url_origin).json()

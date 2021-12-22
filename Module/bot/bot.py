@@ -8,9 +8,13 @@ from Module.data.config import HELP_FILE
 from Module.opinion.opinion import Opinion
 
 
+class ParameterException(Exception):
+    pass
+
+
 class Bot:
     # Mettre le chemin du fichier dans un fichier de configuration
-    def __init__(self, message, command_list: list, opinion: str = "", help_file=HELP_FILE):
+    def __init__(self, message, command_list: list, help_file=HELP_FILE):
         self.__help = help_file
         self.__message = message.get_message(command_list)
         self.error = "Mauvaise syntaxe veuillez entrez /help pour plus de précision!"
@@ -19,34 +23,41 @@ class Bot:
         if isinstance(self.__message, list):
             return self.process_request(self.__message)
         else:
-            print("ici on est dans le str bot", self.__message)
             return self.__message
 
     @property
-    def help(self):
+    def _help(self):
         return self.__help
 
-    def get_help(self):
+    def get_help(self, _help):
         """
         Renvoie toutes les commandes possibles et leur description
-        PRE : Prend un fichier contenant les commandes et leur description
+
+        PRE : Un fichier contenant les commandes et leur description
+        POST : Chaines de caractère des commandes utilisables et leur description
+        RAISES : Exception : si pas de réponse à la requete
+
         """
         try:
-            with open(self.help) as help:
-                return help.read()
+            with open(_help) as help_:
+                return help_.read()
         except FileNotFoundError:
-            print("Fichier Introuvable")
+            return self.error
 
     def process_request(self, message):
         """
         Evalue la requête de l'utilisateur et appelle la classe correspondante
+
+        PRE : liste contenant la commande et les paramètres
+        POST : les réponses adéquates en fonction des modules appelés
+        RAISES : Exception : si pas de réponse à la requete
         """
 
         # message est une liste contenant la commande et les paramètres que l'utilisateur a introduit
 
         if isinstance(message, list):
             if message[0] == "/help":
-                return self.get_help()
+                return self.get_help(self._help)
 
             elif message[0] == "/weather":
                 if len(message) == 1:

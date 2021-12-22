@@ -3,7 +3,7 @@ from Module.data.config import resto_link
 import requests
 
 
-class RequestError(Exception):
+class ParameterException(Exception):
     pass
 
 
@@ -26,9 +26,12 @@ class Resto:
 
     def get_resto(self):
         """
+        Renvoie une liste de restos
+
         PRE : "/resto"
         POST : liste des restos du lieu passé en paramètre (par défaut LLN)
-        RAISES : exception : si pas de réponse à la requete
+        RAISES : Exception : si pas de réponse à la requete
+
         """
 
         response = requests.get(self.url_origin).json()

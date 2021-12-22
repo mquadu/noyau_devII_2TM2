@@ -24,7 +24,7 @@ if sys.platform == "linux":
 PUBLIC_DIR = os.path.join(ROOT_DIR, "public")
 VIEWS_DIR = os.path.join(PUBLIC_DIR, "views")
 SRC_DIR = os.path.join(ROOT_DIR, "src")
-
+COMMAND_LIST = ["/help", "/weather", "/itinerary", "/resto", "/cine", "/news", "/opinion"]
 
 # Link nominatim openstreetmap
 def itinerary_link(address):

@@ -46,6 +46,14 @@ class Itinerary:
             headers=config.headers).json()
 
     def get_itinerary(self):
+        """
+        Renvoie un itinéraire
+
+        PRE : "/itinerary"
+        POST : liste d'étapes retraçant l'itinéraire souhaité
+        RAISES : Exception : si pas de réponse à la requête
+
+        """
 
         response_origin = requests.get(self.url_address_origin).json()
         response_destination = requests.get(self.url_address_destination).json()

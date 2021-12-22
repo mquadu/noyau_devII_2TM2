@@ -1,5 +1,11 @@
 # Recupère les messages de discord
 # -*- coding: utf-8 -*-
+
+
+class ParameterException(Exception):
+    pass
+
+
 class Request:
     def __init__(self, message: str):
         self.__message = message
@@ -12,6 +18,14 @@ class Request:
         self.__message = message
 
     def get_message(self, command_list):
+        """
+        Renvoie la liste des commandes et récupère la request de l'utilisateur
+
+        PRE : une commande de la liste help précédée d'un /
+        POST : renvoie la liste des mots composant la commande
+        RAISES : RAISES : Exception : si pas de réponse à la requête
+
+        """
         message_words = self.message.split(" ")
         if message_words[0][0] == "/" and message_words[0] in command_list:
             return message_words
@@ -22,14 +36,3 @@ class Request:
         else:
             self.set_message("Commande introuvable! Entrez /help pour voir la liste des commandes")
             return self.message
-
-        # elif rep_split[0] == "/weather":
-        #
-        #     if len(rep_split) == 2:
-        #         commande = Commande(rep_split[1]).weather
-        #         print(commande)
-        #     else:
-        #         commande = Commande().weather
-        #         print(commande)
-        # else:
-        #     print("Erreur dans la weather!")

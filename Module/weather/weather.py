@@ -4,6 +4,10 @@ from Module.data.codesTemps import codesTemps
 from Module.data.config import weather_stack
 
 
+class ParameterException(Exception):
+    pass
+
+
 class Weather:
     def __init__(self, city: str = "Louvain-la-Neuve"):
         self.__city = city
@@ -29,8 +33,10 @@ class Weather:
         """
         Renvoie la température de la ville et le temps de la ville
 
-        PRE : -
-        POST : Renvoie une chaine contenant la température qu'il fait dans la ville
+        PRE : "/weather"
+        POST : Une chaine de caractère contenant la température et la couverture nuageuse de la localité
+        RAISES : Exception : si pas de réponse à la requete
+
         """
 
         try:
@@ -39,6 +45,8 @@ class Weather:
             return "Erreur dans le get"
 
         current = response.json()
+
+        print(current)
 
         return f"La température de {self.city} est de {current['current']['temperature']}°C et " \
                f"il fait {codesTemps[current['current']['weather_code']]}"
