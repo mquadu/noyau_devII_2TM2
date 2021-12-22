@@ -43,7 +43,7 @@ class Opinion(MongoConnector):
 
     def set_opinion(self):
         """
-        Permet à l'utilisateur de coter les fonctionnalités
+        Permet à l'utilisateur de laisser une cote et un commentaire'
 
         PRE : "/opinion"
         POST : Une chaîne de caractères d'accusé de réception
