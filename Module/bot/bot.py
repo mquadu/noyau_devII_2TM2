@@ -111,6 +111,7 @@ class Bot:
                     commentaire = ""
                     for i in range(2, len(message)):
                         commentaire += message[i] + " "
+                    commentaire = commentaire[:-1]
                     return Opinion(message[1], commentaire).set_opinion()
         elif isinstance(message, str):
             return message

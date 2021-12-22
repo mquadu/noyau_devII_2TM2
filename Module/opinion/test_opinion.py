@@ -1,5 +1,5 @@
 import unittest
-from opinion import Opinion, MongoConnector
+from Module.opinion.opinion import *
 
 
 class TestOpinion(unittest.TestCase, MongoConnector):
@@ -16,12 +16,14 @@ class TestOpinion(unittest.TestCase, MongoConnector):
         for elem in self.collection.find():
             self.id = elem["_id"]
 
-        self.rep1 = {'_id': self.id + 1, 'opinion': 4, 'message': "c'est trop bien"}
+        self.rep1 = {'_id': self.id + 1, 'opinion': 4,
+                     'message': "c'est trop bien"}
         self.rep2 = {'_id': self.id + 2, 'opinion': 5, 'message': ""}
         self.rep3 = {'_id': self.id + 3, 'opinion': 1, 'message': "nul"}
 
     def test_set_opinion(self):
-        self.assertEqual(Opinion(is_positif=12).set_opinion(), "Choisissez plutôt un nombre entre 0 et 5 svp.")
+        self.assertEqual(Opinion(is_positif=12).set_opinion(),
+                         "Choisissez plutôt un nombre entre 0 et 5 svp.")
 
         self.assertEqual(Opinion(is_positif=4, message="c'est trop bien").set_opinion(),
                          "Votre avis a bien été envoyé. Nous en tiendrons compte !")
