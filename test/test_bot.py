@@ -12,7 +12,7 @@ class TestBot(TestCase):
         self.message_1 = Request("/help")
         self.message_2 = ["/cine", "namur"]
         self.message_3 = ["/resto"]  # Dans le cas ou on ne precise pas doit renvoyer celle de louvain-la-neuve
-        self.message_4 = ["/zerjizoiejr", "je ne suis pas une commande"]  # Doit creer un raise pour ce qui n'est
+        self.message_4 = ["/zerjizoiejr", "je ne suis pas une commande"]
 
     def test_init(self):
         pass

@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import unittest
 from Module.opinion.opinion import *
 

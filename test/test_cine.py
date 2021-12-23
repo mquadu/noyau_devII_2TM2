@@ -1,6 +1,5 @@
 import unittest
-from cine import Cine, RequestError
-import requests
+from Module.cine.cine import Cine, RequestError
 
 
 class TestCine(unittest.TestCase):
