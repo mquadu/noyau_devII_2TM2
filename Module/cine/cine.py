@@ -3,7 +3,7 @@ from Module.data.config import cine_link
 import requests
 
 
-class ParameterException(Exception):
+class RequestError(Exception):
     pass
 
 
@@ -15,7 +15,6 @@ class Cine:
     @property
     def url_origin(self):
         return self.__url_origin
-
 
     @property
     def origin(self):

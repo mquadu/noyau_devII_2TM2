@@ -3,7 +3,7 @@ from Module.data.config import resto_link
 import requests
 
 
-class ParameterException(Exception):
+class RequestError(Exception):
     pass
 
 

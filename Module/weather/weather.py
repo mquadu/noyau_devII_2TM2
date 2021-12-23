@@ -46,7 +46,5 @@ class Weather:
 
         current = response.json()
 
-        print(current)
-
         return f"La température de {self.city} est de {current['current']['temperature']}°C et " \
                f"il fait {codesTemps[current['current']['weather_code']]}"

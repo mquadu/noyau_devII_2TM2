@@ -2,7 +2,7 @@ import os
 import unittest
 from Module.data.config import *
 from Module.request.request import Request
-from Module.itinerary.test_itinerary import TestItinerary
+from test.test_itinerary import TestItinerary
 from Module.bot.bot import Bot
 
 if __name__ == "__main__":
