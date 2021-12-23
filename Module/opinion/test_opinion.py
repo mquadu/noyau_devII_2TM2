@@ -1,5 +1,6 @@
 import unittest
 from Module.opinion.opinion import *
+import pytest
 
 
 class TestOpinion(unittest.TestCase, MongoConnector):
@@ -46,4 +47,4 @@ class TestOpinion(unittest.TestCase, MongoConnector):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    pytest.main()

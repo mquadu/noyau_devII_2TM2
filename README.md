@@ -14,6 +14,9 @@ Les demandes concernent la météo, la recherche d'un itinéraire, les actualit�
 ## Usage
 - Ligne de commande
 >python main.py
+- Connexion à la db
+
+Récupérer une clé de connexion et la renommer en **db_key.pem** et la mettre dans le dossier **Module/data**
 
 ## Fonctionnalités
 1. **/help** : liste de toutes les commandes et leur utilité
