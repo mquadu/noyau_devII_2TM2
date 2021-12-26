@@ -1,7 +1,5 @@
 import unittest
-import sys
-sys.path.append('../Module')
-from Module.opinion.opinion import *
+from ..Module.opinion.opinion import *
 import pytest
 
 # Commande de connexion à la base de doonnées mongosh 

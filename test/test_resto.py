@@ -1,7 +1,5 @@
 import unittest
-import sys
-sys.path.append('../Module')
-from Module.resto.resto import Resto, RequestError
+from ..Module.resto.resto import Resto, RequestError
 
 
 class TestResto(unittest.TestCase):

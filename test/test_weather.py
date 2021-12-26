@@ -1,7 +1,5 @@
 import unittest
-import sys
-sys.path.append('../Module')
-from Module.weather.weather import *
+from ..Module.weather.weather import *
 
 
 class TestWeather(unittest.TestCase):
