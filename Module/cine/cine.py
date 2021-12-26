@@ -44,6 +44,6 @@ class Cine:
             cine += "\n"
             for address in i["address"]:
                 if address not in ["country", "country_code", "region", "postcode", "county"]:
-                    cine += f"{i['address'][address]}"
+                    cine += f"{i['address'][address]} "
             cine += "\n"
         return cine
