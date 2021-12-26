@@ -1,7 +1,7 @@
 import unittest
-from ..Module.bot.bot import Bot
-from ..Module.data.config import COMMAND_LIST, HELP_FILE
-from ..Module.request.request import Request
+from Module.bot.bot import Bot
+from Module.data.config import COMMAND_LIST, HELP_FILE
+from Module.request.request import Request
 
 
 

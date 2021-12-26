@@ -1,6 +1,6 @@
 import unittest
-from ..Module.request.request import *
-from ..Module.data.config import COMMAND_LIST
+from Module.request.request import *
+from Module.data.config import COMMAND_LIST
 
 
 class TestRequest(unittest.TestCase):
