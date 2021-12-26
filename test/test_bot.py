@@ -4,8 +4,6 @@ from Module.data.config import COMMAND_LIST, HELP_FILE
 from Module.request.request import Request
 
 
-
-
 class TestBot(unittest.TestCase):
 
     def setUp(self) -> None:
