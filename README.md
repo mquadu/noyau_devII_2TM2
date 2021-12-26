@@ -1,4 +1,3 @@
-[![unittest](https://github.com/mquadu/noyau_devII_2TM2/actions/workflows/main.yml/badge.svg?branch=master&event=push)](https://github.com/mquadu/noyau_devII_2TM2/actions/workflows/main.yml)
 # Présentation
 
 Projet EpheCom
