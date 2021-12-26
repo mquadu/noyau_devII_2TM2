@@ -1,4 +1,6 @@
 import unittest
+import sys
+sys.path.append('../Module')
 from Module.request.request import *
 from Module.data.config import COMMAND_LIST
 

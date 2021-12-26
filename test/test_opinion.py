@@ -1,4 +1,6 @@
 import unittest
+import sys
+sys.path.append('../Module')
 from Module.opinion.opinion import *
 import pytest
 

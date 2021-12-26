@@ -1,6 +1,8 @@
 import unittest
-from Module.news.news import *
+import sys
+sys.path.append('../Module')
 
+from Module.news.news import *
 
 class TestNews(unittest.TestCase):
     def setUp(self) -> None:

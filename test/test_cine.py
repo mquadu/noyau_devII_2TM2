@@ -1,4 +1,6 @@
 import unittest
+import sys
+sys.path.append('../Module')
 from Module.cine.cine import Cine, RequestError
 
 

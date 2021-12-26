@@ -1,7 +1,11 @@
 import unittest
+import sys
+sys.path.append('../Module')
 from Module.bot.bot import Bot
 from Module.data.config import COMMAND_LIST, HELP_FILE
 from Module.request.request import Request
+
+
 
 
 class TestBot(unittest.TestCase):

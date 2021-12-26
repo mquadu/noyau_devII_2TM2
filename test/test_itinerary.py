@@ -1,8 +1,9 @@
 from unittest import TestCase
 import unittest
+import sys
+sys.path.append('../Module')
 
 from Module.itinerary.itinerary import Itinerary, ParameterException
-
 
 class TestItinerary(TestCase):
     def setUp(self) -> None:
