@@ -12,11 +12,17 @@ Les demandes concernent la météo, la recherche d'un itinéraire, les actualit�
 - pymongo
 
 ## Usage
-- Ligne de commande
->python main.py
+
+
 - Connexion à la db
 
 Récupérer une clé de connexion et la renommer en **db_key.pem** et la mettre dans le dossier **Module/data**
+
+- Ligne de commande
+> pip install -r requirements.txt
+> 
+>python main.py
+
 
 ## Fonctionnalités
 1. **/help** : liste de toutes les commandes et leur utilité
