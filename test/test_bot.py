@@ -16,7 +16,7 @@ class TestBot(unittest.TestCase):
         pass
 
     def test_get_help(self):
-        self.assertEqual(len(Bot(Request("/help"), self.true_command_list).get_help(HELP_FILE)), 911)
+        self.assertEqual(len(Bot(Request("/help"), self.true_command_list).get_help(HELP_FILE)), 913)
 
     def test_process_request(self):
         self.assertEqual(len(Bot(Request("/itinerary louvain-la-neuve ottignies"), self.true_command_list).process_request(Request("/itinerary louvain-la-neuve ottignies").get_message(self.true_command_list))), 1201)
