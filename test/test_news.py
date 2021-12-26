@@ -1,5 +1,8 @@
 import unittest
-from Module.news.news import *
+# from Module.news.news import *
+import datetime
+from context import News
+
 
 class TestNews(unittest.TestCase):
     def setUp(self) -> None:

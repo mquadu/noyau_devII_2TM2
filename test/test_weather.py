@@ -1,5 +1,6 @@
 import unittest
-from Module.weather.weather import *
+# from Module.weather.weather import *
+from context import Weather
 
 
 class TestWeather(unittest.TestCase):

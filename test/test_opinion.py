@@ -1,6 +1,7 @@
 import unittest
-from Module.opinion.opinion import *
+# from Module.opinion.opinion import *
 import pytest
+from context import Opinion, MongoConnector
 
 # Commande de connexion à la base de doonnées mongosh 
 # "mongodb+srv://cluster0.5i6qo.gcp.mongodb.net/ephecom-2TM2?authSource=%24external&authMechanism=MONGODB-X509" --tls

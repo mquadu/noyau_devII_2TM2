@@ -1,5 +1,5 @@
 import unittest
-from Module.resto.resto import Resto, RequestError
+from context import Resto, RequestError
 
 
 class TestResto(unittest.TestCase):

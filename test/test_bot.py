@@ -1,7 +1,5 @@
 import unittest
-from Module.bot.bot import Bot
-from Module.data.config import COMMAND_LIST, HELP_FILE
-from Module.request.request import Request
+from context import Bot, COMMAND_LIST, HELP_FILE, Request
 
 
 class TestBot(unittest.TestCase):
