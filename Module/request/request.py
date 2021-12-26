@@ -1,5 +1,6 @@
 # Recupère les messages de discord
 # -*- coding: utf-8 -*-
+from Module.data.config import check_conection
 
 
 class ParameterException(Exception):
@@ -26,6 +27,9 @@ class Request:
         RAISES : RAISES : Exception : si pas de réponse à la requête
 
         """
+        if check_conection():
+            self.set_message("Please check your internet connection")
+            return self.message
         message_words = self.message.split(" ")
         if message_words[0][0] == "/" and message_words[0] in command_list:
             return message_words

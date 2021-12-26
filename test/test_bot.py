@@ -12,7 +12,7 @@ class TestBot(unittest.TestCase):
         self.message_1 = Request("/help")
         self.message_2 = ["/cine", "namur"]
 
-    def test_init(self):    
+    def test_init(self):
         pass
 
     def test_get_help(self):

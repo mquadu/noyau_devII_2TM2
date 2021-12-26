@@ -9,9 +9,9 @@ class ParameterException(Exception):
 
 
 class Weather:
-    def __init__(self, city: str = "Louvain-la-Neuve"):
+    def __init__(self, city="louvain-la-neuve"):
         self.__city = city
-        self.__api_link = weather_stack(self.__city)
+        self.__api_link = weather_stack(city)
 
     @property
     def city(self):
@@ -45,6 +45,6 @@ class Weather:
             return "Erreur dans le get"
 
         current = response.json()
-
+        print(current)
         return f"La température de {self.city} est de {current['current']['temperature']}°C et " \
                f"il fait {codesTemps[current['current']['weather_code']]}"

@@ -1,5 +1,5 @@
 # Marina
-from Module.data.config import cine_link
+from Module.data.config import cine_link , check_conection
 import requests
 
 
@@ -33,7 +33,6 @@ class Cine:
         RAISES : Exception : si pas de réponse à la requete
 
         """
-
         response = requests.get(self.url_origin).json()
 
         if not len(response):

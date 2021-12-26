@@ -1,7 +1,7 @@
 # Noé Libon
 import sys
 from pymongo import MongoClient
-from Module.data.config import CERTIFICATE_FILE, MODULE_DIR
+from Module.data.config import CERTIFICATE_FILE, check_conection
 
 
 class ParameterException(Exception):
@@ -50,7 +50,6 @@ class Opinion(MongoConnector):
         RAISES : Exception : si pas de réponse à la requête
 
         """
-
         if 0 <= int(self.score) <= 5:
             for elem in self.collection.find():
                 self.id = elem["_id"] + 1

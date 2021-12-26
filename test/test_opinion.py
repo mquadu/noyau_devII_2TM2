@@ -2,6 +2,10 @@ import unittest
 from Module.opinion.opinion import *
 import pytest
 
+# Commande de connexion à la base de doonnées mongosh 
+# "mongodb+srv://cluster0.5i6qo.gcp.mongodb.net/ephecom-2TM2?authSource=%24external&authMechanism=MONGODB-X509" --tls
+# --tlsCertificateKeyFile ./db_key.pem 
+
 
 class TestOpinion(unittest.TestCase, MongoConnector):
     def setUp(self):
@@ -21,6 +25,12 @@ class TestOpinion(unittest.TestCase, MongoConnector):
                      'message': "c'est trop bien"}
         self.rep2 = {'_id': self.id + 2, 'opinion': 5, 'message': ""}
         self.rep3 = {'_id': self.id + 3, 'opinion': 1, 'message': "nul"}
+
+    def test_init(self):
+        """
+        Tester l'instanciation de la connexion a la base de données
+        """
+        pass
 
     def test_set_opinion(self):
         self.assertEqual(Opinion(is_positif=12).set_opinion(),

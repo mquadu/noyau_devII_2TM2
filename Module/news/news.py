@@ -1,7 +1,7 @@
 # Nathan Sancke
 import requests
 import datetime
-from Module.data.config import news_link
+from Module.data.config import news_link, check_conection
 
 
 class ParameterException(Exception):

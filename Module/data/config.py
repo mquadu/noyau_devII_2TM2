@@ -1,5 +1,7 @@
 import sys
 import os
+import socket
+
 
 # Link open street service
 headers = {'Accept': 'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8', }
@@ -48,3 +50,12 @@ def cine_link(address):
 
 def resto_link(address):
     return f"https://nominatim.openstreetmap.org/search?osmtype=N&addressdetails=1&q=restaurant+{address}&format=json"
+
+
+def check_conection():
+    try:
+        socket.setdefaulttimeout(3)
+        socket.socket(socket.AF_INET, socket.SOCK_STREAM).connect(("8.8.8.8", 53))
+        return True
+    except socket.error as ex:
+        return False

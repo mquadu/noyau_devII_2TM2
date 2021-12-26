@@ -1,6 +1,5 @@
 import Module.data.config as config
 import requests
-import subprocess
 
 
 class ParameterException(Exception):
@@ -55,8 +54,6 @@ class Itinerary:
         RAISES : Exception : si pas de réponse à la requête
 
         """
-        # if subprocess.run(["ping", "-c1", "google.com"], capture_output=True, universal_newlines=True).stdout == "ping: google.com: Échec temporaire dans la résolution du nom":
-        #     raise ConnectionError("Please check your internet connection")
 
         response_origin = requests.get(self.url_address_origin).json()
 
