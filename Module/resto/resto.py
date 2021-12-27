@@ -45,6 +45,6 @@ class Resto:
             restaurant += "\n"
             for address in i["address"]:
                 if address not in ["country", "country_code", "region", "postcode", "county"]:
-                    restaurant += f"{i['address'][address]}"
+                    restaurant += f"{i['address'][address]} "
             restaurant += "\n"
         return restaurant
