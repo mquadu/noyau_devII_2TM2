@@ -37,7 +37,6 @@ class Resto:
         response = requests.get(self.url_origin).json()
 
         if not len(response):
-            print("except connection")
             raise RequestError("Can't fetch Restaurant")
 
         restaurant = ""

@@ -18,7 +18,7 @@ class TestResto(unittest.TestCase):
 
     def test_get_resto(self):
         self.assertRaises(RequestError, self.resto3.get_resto)
-        self.assertEqual(len(self.resto2.get_resto()), 652) #599--66
+        self.assertEqual(len(Resto('Genappe').get_resto()), 652) #599--66
 
 
 if __name__ == '__main__':
