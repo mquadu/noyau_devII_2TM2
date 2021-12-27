@@ -11,10 +11,10 @@ class TestCine(unittest.TestCase):
     def test_url(self):
         self.assertEqual(Cine('Louvain-la-Neuve').url_origin,
                          "https://nominatim.openstreetmap.org/search?osmtype=N&addressdetails"
-                         "=1&q=cinema+Louvain-la-Neuve&format=json")
+                         "=1&q=cinema+Louvain-la-Neuve&format=json", "Mauvais lien")
         self.assertEqual(Cine('Namur').url_origin,
                          "https://nominatim.openstreetmap.org/search?osmtype=N&addressdetails"
-                         "=1&q=cinema+Namur&format=json")
+                         "=1&q=cinema+Namur&format=json", "Mauvais lien")
 
     def test_get_cine(self):
         # self.assertRaises(RequestError, self.cine3.get_cine)
