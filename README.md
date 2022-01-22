@@ -1,5 +1,5 @@
 
-#ChatBot Externe 
+# ChatBot Externe 
 Ce module fait partie du Projet EpheCom de la Haute-Ecole Ephec projet visant à créer une application basée sur le modèle Discord.
 
 Il doit pouvoir répondre dans le chat aux demandes spécifiques de l'utilisateur.
@@ -16,16 +16,12 @@ Les demandes concernent la météo, les itinéraires, les actualités et la rech
 
 # Usage
 
----
-
 ## Connexion à la db
 
----
 Récupérer une clé de connexion à la BD, la renommer en **db_key.pem**  et la mettre dans le dossier **src/data**
 
 ## Mise en place
 
----
 
 *NB : Le Bot devrait être fonctionnelle peut importe L'OS utilisé*
 
@@ -33,34 +29,30 @@ Récupérer une clé de connexion à la BD, la renommer en **db_key.pem**  et la
 
 ***
 Dans le dossier **src/data/config.py** renommer la variable **ROOT_DIRECTORY** comme suit :
-
->ROOT_DIRECTORY=nom_du_dossier_contenant_votre_projet
-
-###Linux
-
----
-> python3 -m venv env
->  
-> ./env/bin/activate
-> 
-> pip install -r requirements.txt
-> 
-> python main.py
-
-###Windows
+```
+ROOT_DIRECTORY=nom_du_dossier_contenant_votre_projet
+```
+### Linux
 
 ---
-> python3 -m venv env
->  
-> env\Scripts\Activate.ps1
-> 
-> pip install -r requirements.txt
-> 
-> python main.py
+```
+python3 -m venv env
+./env/bin/activate
+pip install -r requirements.txt
+python main.py
+```
+### Windows
 
+---
+```
+python3 -m venv env  
+env\Scripts\Activate.ps1
+pip install -r requirements.txt 
+python main.py
+```
 ## Fonctionnalités
 
----
+
 >1. **/help** : liste de toutes les commandes et leur utilité
 
 >2. **/weather** : température, probabilité de pluie et prévisions (par défaut : LLN)
@@ -85,10 +77,10 @@ Dans le dossier **src/data/config.py** renommer la variable **ROOT_DIRECTORY** c
 
 ## Tests
 
-***
 *Les tests peuvent être effectués à partir du répertoire tests*
-
-> python test/test.py
+```
+python test/test.py
+```
 
 ## Licence
 MIT
