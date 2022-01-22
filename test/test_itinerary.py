@@ -34,7 +34,7 @@ class TestItinerary(TestCase):
 
     def test_get_itinerary(self):
         self.assertEqual(len(self.itinerary_lln_ottignies.get_itinerary()), 1201)
-        self.assertEqual(len(self.itinerary_bruxelle_namur.get_itinerary()), 7322)
+        self.assertEqual(len(self.itinerary_bruxelle_namur.get_itinerary()), 7170)
 
 
 if __name__ == "__main__":
