@@ -17,7 +17,6 @@ class News:
         self.__keyword = "&keywords="
         self.__languages = "&languages=fr"
         self.__api_link = news_link()
-
     @property
     def date(self):
         return self.__date
@@ -75,6 +74,7 @@ class News:
         try:
             reponse = requests.get(
                 self.api_link + self.country + self.languages + self.limit + self.keyword + self.date)
+
         except ValueError:
             return "Erreur dans le get"
 
