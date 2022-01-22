@@ -6,17 +6,15 @@ Les demandes concernent la météo, la recherche d'un itinéraire, les actualit�
 ## Requirements
 - Python3 or later
 - requests~=2.26.0
-- Kivy~=2.0.0
-- OSMPythonTools~=0.3.2
-- kivymd
 - pymongo
+- urllib3==1.26.6
 
 ## Usage
 
 
 - Connexion à la db
 
-Récupérer une clé de connexion et la renommer en **db_key.pem** et la mettre dans le dossier **Module/data**
+Récupérer une clé de connexion et la renommer en **db_key.pem** et la mettre dans le dossier **src/data**
 
 - Ligne de commande
 > pip install -r requirements.txt

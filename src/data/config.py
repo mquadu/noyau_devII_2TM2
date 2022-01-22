@@ -2,7 +2,6 @@
 import sys
 import os
 import socket
-import tracemalloc
 
 # Link open street service
 headers = {'Accept': 'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8', }
@@ -12,25 +11,19 @@ open_street_link = 'https://api.openrouteservice.org/v2/directions/driving-car?a
 # Directory containing
 ROOT_DIR = ""
 if sys.platform == "win32":
-    index_root = sys.path[0].split('\\').index("Module_Bot")
+    index_root = sys.path[0].split('\\').index("noyau_devII_2TM2")
     ROOT_DIR = "\\".join(sys.path[0].split("\\")[:index_root+1])
-
-if sys.platform == "linux":
-    index_root = sys.path[0].split('/').index("Module_Bot")
-    ROOT_DIR = "/".join(sys.path[0].split("/")[:index_root + 1])
-
-MODULE_DIR = os.path.join(ROOT_DIR, "src")
-
-if sys.platform == "win32":
+    MODULE_DIR = os.path.join(ROOT_DIR, "src")
     HELP_FILE = os.path.join(MODULE_DIR, "data\\help.txt")
     CERTIFICATE_FILE = os.path.join(MODULE_DIR, "data\\db_key.pem")
+
 if sys.platform == "linux":
+    index_root = sys.path[0].split('/').index("noyau_devII_2TM2")
+    ROOT_DIR = "/".join(sys.path[0].split("/")[:index_root + 1])
+    MODULE_DIR = os.path.join(ROOT_DIR, "src")
     HELP_FILE = os.path.join(MODULE_DIR, "data/help.txt")
     CERTIFICATE_FILE = os.path.join(MODULE_DIR, "data/db_key.pem")
 
-PUBLIC_DIR = os.path.join(ROOT_DIR, "public")
-VIEWS_DIR = os.path.join(PUBLIC_DIR, "views")
-SRC_DIR = os.path.join(ROOT_DIR, "src")
 COMMAND_LIST = ["/help", "/weather", "/itinerary", "/resto", "/cine", "/news", "/opinion"]
 
 
@@ -59,7 +52,6 @@ def check_conection_defaullt():
     try:
         socket.setdefaulttimeout(3)
         socket.socket(socket.AF_INET, socket.SOCK_STREAM).connect(("8.8.8.8", 53))
-        tracemalloc.stop()
         return False
     except socket.error:
         return True
