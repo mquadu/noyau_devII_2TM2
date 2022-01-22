@@ -1,6 +1,6 @@
 # Recupère les messages de discord
 # -*- coding: utf-8 -*-
-from Module.data.config import check_conection
+from src.libs.Module.data.config import check_conection
 
 
 class ParameterException(Exception):

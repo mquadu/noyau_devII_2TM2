@@ -13,7 +13,7 @@ from kivy.uix.label import Label
 from kivy.uix.screenmanager import ScreenManagerException
 from kivy.uix.scrollview import ScrollView
 
-from Module.data.config import VIEWS_DIR
+from src.libs.Module.data.config import VIEWS_DIR
 from src.libs.sorting.dict_sort import dict_sort
 from src.models.channel import Channel
 from src.models.group import Group

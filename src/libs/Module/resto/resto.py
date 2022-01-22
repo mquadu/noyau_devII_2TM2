@@ -1,5 +1,5 @@
 # Marina
-from Module.data.config import cine_link , check_conection
+from src.libs.Module.data.config import resto_link
 import requests
 
 
@@ -7,10 +7,10 @@ class RequestError(Exception):
     pass
 
 
-class Cine:
+class Resto:
     def __init__(self, origin='Louvain-la-Neuve'):
         self.__origin = origin
-        self.__url_origin = cine_link(self.origin)
+        self.__url_origin = resto_link(self.__origin)
 
     @property
     def url_origin(self):
@@ -24,25 +24,26 @@ class Cine:
     def origin(self, origin):
         self.__origin = origin
 
-    def get_cine(self):
+    def get_resto(self):
         """
-        Renvoie une liste de cinémas
+        Renvoie une liste de restos
 
-        PRE : "/cine"
-        POST : liste des cinemas de la localité passée en paramètre (par défaut LLN)
+        PRE : "/resto"
+        POST : liste des restos du lieu passé en paramètre (par défaut LLN)
         RAISES : Exception : si pas de réponse à la requete
 
         """
+
         response = requests.get(self.url_origin).json()
 
         if not len(response):
-            raise RequestError("Can't fetch Cinema")
+            raise RequestError("Can't fetch Restaurant")
 
-        cine = ""
+        restaurant = ""
         for i in response:
-            cine += "\n"
+            restaurant += "\n"
             for address in i["address"]:
                 if address not in ["country", "country_code", "region", "postcode", "county"]:
-                    cine += f"{i['address'][address]} "
-            cine += "\n"
-        return cine
+                    restaurant += f"{i['address'][address]} "
+            restaurant += "\n"
+        return restaurant

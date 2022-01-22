@@ -10,22 +10,23 @@ open_street_link = 'https://api.openrouteservice.org/v2/directions/driving-car?a
 # "\\".join(
 # Directory containing
 ROOT_DIR = ""
+MODULE_DIR = ""
+HELP_FILE = ""
+CERTIFICATE_FILE = ""
 if sys.platform == "win32":
     index_root = sys.path[0].split('\\').index("noyau_devII_2TM2")
     ROOT_DIR = "\\".join(sys.path[0].split("\\")[:index_root+1])
+    MODULE_DIR = os.path.join(ROOT_DIR, "src\\libs\\Module")
+    HELP_FILE = os.path.join(MODULE_DIR, "data\\help.txt")
+    CERTIFICATE_FILE = os.path.join(MODULE_DIR, "data\\db_key.pem")
 
 if sys.platform == "linux":
     index_root = sys.path[0].split('/').index("noyau_devII_2TM2")
     ROOT_DIR = "/".join(sys.path[0].split("/")[:index_root + 1])
-
-MODULE_DIR = os.path.join(ROOT_DIR, "Module")
-
-if sys.platform == "win32":
-    HELP_FILE = os.path.join(MODULE_DIR, "data\\help.txt")
-    CERTIFICATE_FILE = os.path.join(MODULE_DIR, "data\\db_key.pem")
-if sys.platform == "linux":
+    MODULE_DIR = os.path.join(ROOT_DIR, "src/libs/Module")
     HELP_FILE = os.path.join(MODULE_DIR, "data/help.txt")
     CERTIFICATE_FILE = os.path.join(MODULE_DIR, "data/db_key.pem")
+
 PUBLIC_DIR = os.path.join(ROOT_DIR, "public")
 VIEWS_DIR = os.path.join(PUBLIC_DIR, "views")
 SRC_DIR = os.path.join(ROOT_DIR, "src")
@@ -56,9 +57,8 @@ def check_conection_defaullt():
     try:
         socket.setdefaulttimeout(3)
         socket.socket(socket.AF_INET, socket.SOCK_STREAM).connect(("8.8.8.8", 53))
-        tracemalloc.stop()
         return False
-    except socket.error as ex:
+    except socket.error:
         return True
 
 
@@ -67,9 +67,8 @@ def check_conection():
         # if we resolve the hostname urllib.urlopen() -- fonctionne aussi
         host = socket.gethostbyname("www.google.com")
 
-        s = socket.create_connection((host, 80), 2)
+        socket.create_connection((host, 80), 2)
         return False
-
     except:
         pass
     return True

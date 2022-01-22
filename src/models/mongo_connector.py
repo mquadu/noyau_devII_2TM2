@@ -4,6 +4,7 @@ from src.config import config
 
 
 class MongoConnector:
+    #TODO: SetUp my own database for the full development of the application
     """
         Cette classe permet de créer une connexion vers la base de données.
         Veuillez modifier la variable 'certificat_path' avec le chemin vers l'endroit ou se trouve votre certificat.

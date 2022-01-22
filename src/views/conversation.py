@@ -15,10 +15,9 @@ from kivy.uix.label import Label
 from kivy.uix.relativelayout import RelativeLayout
 from kivy.uix.scrollview import ScrollView
 
-from Module.data.config import VIEWS_DIR
-from Module.data.config import PUBLIC_DIR, COMMAND_LIST
-from Module.bot.bot import Bot
-from Module.request.request import Request
+from src.libs.Module.data.config import VIEWS_DIR, PUBLIC_DIR, COMMAND_LIST
+from src.libs.Module.bot.bot import Bot
+from src.libs.Module.request.request import Request
 from src.models.message import Message
 
 if sys.platform == "linux":
