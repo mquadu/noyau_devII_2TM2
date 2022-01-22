@@ -1,4 +1,3 @@
-labaster==0.7.12
 Babel==2.9.1
 certifi==2021.5.30
 charset-normalizer==2.0.4
