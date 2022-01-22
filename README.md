@@ -23,7 +23,7 @@ Récupérer une clé de connexion à la BD, la renommer en **db_key.pem**  et la
 ## Mise en place
 
 
-*NB : Le Bot devrait être fonctionnelle peut importe L'OS utilisé*
+*NB : Le Bot devrait être fonctionnel peu importe l'OS utilisé*
 
 ### Configuration de la directory root
 
