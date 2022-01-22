@@ -1,13 +1,13 @@
 
 # -*- coding: utf-8 -*-
-from src.Bot.request import Request
-from src.Bot.weather import Weather
-from src.Bot.itinerary import Itinerary
-from src.Bot.news import News
-from src.Bot.cine import Cine
-from src.Bot.resto import Resto
-from src.Bot.config import HELP_FILE, COMMAND_LIST
-from src.Bot.opinion import Opinion
+from Bot.request import Request
+from Bot.weather import Weather
+from Bot.itinerary import Itinerary
+from Bot.news import News
+from Bot.cine import Cine
+from Bot.resto import Resto
+from Bot.config import HELP_FILE, COMMAND_LIST
+from Bot.opinion import Opinion
 
 
 class ParameterException(Exception):
@@ -16,6 +16,7 @@ class ParameterException(Exception):
 
 class Bot:
     # Mettre le chemin du fichier dans un fichier de configuration
+
     def __init__(self, message, command_list=COMMAND_LIST, help_file=HELP_FILE):
         self.__help = help_file
 

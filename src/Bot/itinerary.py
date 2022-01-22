@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import src.Bot.config as config
+import Bot.config as config
 import requests
 
 

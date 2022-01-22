@@ -1,7 +1,7 @@
 import requests
 
-from src.Bot.codesTemps import codesTemps
-from src.Bot.config import weather_stack
+from Bot.codesTemps import codesTemps
+from Bot.config import weather_stack
 
 
 class ParameterException(Exception):

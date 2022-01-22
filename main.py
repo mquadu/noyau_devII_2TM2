@@ -1,8 +1,9 @@
-from src.Bot.config import COMMAND_LIST
+from src.Bot.config import COMMAND_LIST , ROOT_DIR
 from src.Bot.request import Request
 from src.Bot.bot import Bot
 
 if __name__ == "__main__":
+
     print("\t-----  BIENVENUE SUR LE CHATBOT EXTERNE -----\n")
     print("--Entrez /help pour voir la liste des commandes disponibles et leurs utilitées --\n\n ")
     while True:

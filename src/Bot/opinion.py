@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from pymongo import MongoClient
-from src.Bot.config import CERTIFICATE_FILE
+from Bot.config import CERTIFICATE_FILE
 
 
 class ParameterException(Exception):

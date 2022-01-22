@@ -1,5 +1,5 @@
 
-from src.Bot.config import resto_link
+from Bot.config import resto_link
 import requests
 
 

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from src.Bot.config import check_conection
+from Bot.config import check_conection
 
 
 class ParameterException(Exception):

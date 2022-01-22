@@ -1,10 +1,10 @@
-# -*- coding: utf-8 -*-
+## -*- coding: utf-8 -*-
 import sys
 import os
 import socket
 
 # RENOMER CETTE VARIABLE AVEC LE NOM DU DOSSIER QUI CONTIENT VOTRE PROJET
-ROOT_DIRECTORY = "noyau_devII_2TM2"
+# ROOT_DIRECTORY = "noyau_devII_2TM2"
 
 # Link open street service
 headers = {'Accept': 'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8', }
@@ -14,16 +14,22 @@ open_street_link = 'https://api.openrouteservice.org/v2/directions/driving-car?a
 # Directory containing
 ROOT_DIR = ""
 if sys.platform == "win32":
-    index_root = sys.path[0].split('\\').index(ROOT_DIRECTORY)
-    ROOT_DIR = "\\".join(sys.path[0].split("\\")[:index_root+1])
-    MODULE_DIR = os.path.join(ROOT_DIR, "src")
+    # index_root = sys.path[0].split('\\').index(ROOT_DIRECTORY)
+    ROOT_DIR = "\\".join(sys.path[-2].split("\\")[:])
+    if "src" in  sys.path[-2].split('\\'):
+        MODULE_DIR = os.path.join(ROOT_DIR, "src")
+    else:
+        MODULE_DIR = ROOT_DIR
     HELP_FILE = os.path.join(MODULE_DIR, "Bot\\help.txt")
     CERTIFICATE_FILE = os.path.join(MODULE_DIR, "Bot\\db_key.pem")
 
 if sys.platform == "linux":
-    index_root = sys.path[0].split('/').index(ROOT_DIRECTORY)
-    ROOT_DIR = "/".join(sys.path[0].split("/")[:index_root+1])
-    MODULE_DIR = os.path.join(ROOT_DIR, "src")
+    # index_root = sys.path[-2].split('/').index(ROOT_DIRECTORY)
+    ROOT_DIR = "/".join(sys.path[-2].split("/")[:])
+    if "src" in sys.path[-2].split('\\'):
+        MODULE_DIR = os.path.join(ROOT_DIR, "src")
+    else:
+        MODULE_DIR = ROOT_DIR
     HELP_FILE = os.path.join(MODULE_DIR, "Bot/help.txt")
     CERTIFICATE_FILE = os.path.join(MODULE_DIR, "Bot/db_key.pem")
 
