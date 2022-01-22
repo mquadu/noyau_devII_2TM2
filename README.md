@@ -1,4 +1,4 @@
-[![unittest](https://github.com/mquadu/noyau_devII_2TM2/actions/workflows/main.yml/badge.svg?branch=master&event=push)](https://github.com/mquadu/noyau_devII_2TM2/actions/workflows/main.yml)
+[![Module Bot](https://github.com/CardinPatson/noyau_devII_2TM2/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/CardinPatson/noyau_devII_2TM2/actions/workflows/main.yml)
 # Module chatBot Externe 
 ### Ce module fait partie d'un projet visant à créer une application basée sur le modèle Discord.
 
