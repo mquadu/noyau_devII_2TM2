@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import requests
 import datetime
-from src.data.config import news_link
+from src.Bot.config import news_link
 
 
 class ParameterException(Exception):

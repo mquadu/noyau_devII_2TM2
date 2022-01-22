@@ -1,12 +1,13 @@
 
 # -*- coding: utf-8 -*-
-from src.weather.weather import Weather
-from src.itinerary.itinerary import Itinerary
-from src.news.news import News
-from src.cine.cine import Cine
-from src.resto.resto import Resto
-from src.data.config import HELP_FILE
-from src.opinion.opinion import Opinion
+from src.Bot.request import Request
+from src.Bot.weather import Weather
+from src.Bot.itinerary import Itinerary
+from src.Bot.news import News
+from src.Bot.cine import Cine
+from src.Bot.resto import Resto
+from src.Bot.config import HELP_FILE, COMMAND_LIST
+from src.Bot.opinion import Opinion
 
 
 class ParameterException(Exception):
@@ -15,9 +16,10 @@ class ParameterException(Exception):
 
 class Bot:
     # Mettre le chemin du fichier dans un fichier de configuration
-    def __init__(self, message, command_list: list, help_file=HELP_FILE):
+    def __init__(self, message, command_list=COMMAND_LIST, help_file=HELP_FILE):
         self.__help = help_file
-        self.__message = message.get_message(command_list)
+
+        self.__message = Request(message).get_message(command_list)
         self.error = "Mauvaise syntaxe veuillez entrez /help pour plus de précision!"
 
     def __str__(self):

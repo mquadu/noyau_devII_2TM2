@@ -17,15 +17,15 @@ if sys.platform == "win32":
     index_root = sys.path[0].split('\\').index(ROOT_DIRECTORY)
     ROOT_DIR = "\\".join(sys.path[0].split("\\")[:index_root+1])
     MODULE_DIR = os.path.join(ROOT_DIR, "src")
-    HELP_FILE = os.path.join(MODULE_DIR, "data\\help.txt")
-    CERTIFICATE_FILE = os.path.join(MODULE_DIR, "data\\db_key.pem")
+    HELP_FILE = os.path.join(MODULE_DIR, "Bot\\help.txt")
+    CERTIFICATE_FILE = os.path.join(MODULE_DIR, "Bot\\db_key.pem")
 
 if sys.platform == "linux":
     index_root = sys.path[0].split('/').index(ROOT_DIRECTORY)
-    ROOT_DIR = "/".join(sys.path[0].split("/")[:-2])
+    ROOT_DIR = "/".join(sys.path[0].split("/")[:index_root+1])
     MODULE_DIR = os.path.join(ROOT_DIR, "src")
-    HELP_FILE = os.path.join(MODULE_DIR, "data/help.txt")
-    CERTIFICATE_FILE = os.path.join(MODULE_DIR, "data/db_key.pem")
+    HELP_FILE = os.path.join(MODULE_DIR, "Bot/help.txt")
+    CERTIFICATE_FILE = os.path.join(MODULE_DIR, "Bot/db_key.pem")
 
 COMMAND_LIST = ["/help", "/weather", "/itinerary", "/resto", "/cine", "/news", "/opinion"]
 

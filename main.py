@@ -1,6 +1,6 @@
-from src.data.config import COMMAND_LIST
-from src.request.request import Request
-from src.bot.bot import Bot
+from src.Bot.config import COMMAND_LIST
+from src.Bot.request import Request
+from src.Bot.bot import Bot
 
 if __name__ == "__main__":
     print("\t-----  BIENVENUE SUR LE CHATBOT EXTERNE -----\n")
@@ -8,8 +8,8 @@ if __name__ == "__main__":
     while True:
         rep = input("Entrez une commmande ou exit pour quitter:\t")
         if rep == "exit":
+            print("\t-- Merci --\n")
             break
-        message = Request(rep)
 
-        print(Bot(message, COMMAND_LIST), "\n")
+        print(Bot(rep), "\n")
 
