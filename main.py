@@ -7,7 +7,7 @@ from src.models.screens_manager import ScreensManager
 
 from kivy.app import App
 from kivy.lang import Builder
-from Module.data.config import VIEWS_DIR
+from src.libs.Module.data.config import VIEWS_DIR
 
 if sys.platform == "win32":
     kivy.require('2.0.0')

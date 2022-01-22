@@ -1,5 +1,5 @@
-from Module.request.request import Request
-from Module.bot.bot import Bot
+from src.libs.Module import Request
+from src.Module.bot import Bot
 
 if __name__ == "__main__":
     rep = input("Entrez une commmande \t")  # La classe request doit récupérer le request de l'utilisateur et son

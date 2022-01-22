@@ -1,7 +1,7 @@
 # Noé Libon
 import sys
 from pymongo import MongoClient
-from Module.data.config import CERTIFICATE_FILE, check_conection
+from src.libs.Module.data.config import CERTIFICATE_FILE, check_conection
 
 
 class ParameterException(Exception):

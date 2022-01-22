@@ -1,4 +1,4 @@
-import Module.data.config as config
+import src.libs.Module.data.config as config
 import requests
 
 

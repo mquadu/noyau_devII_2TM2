@@ -14,7 +14,7 @@ import sys
 from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen
 
-from Module.data.config import VIEWS_DIR
+from src.libs.Module.data.config import VIEWS_DIR
 from src.models.screens_manager import ScreensManager
 from src.views.conversation import Conversation
 from src.views.teams_container import TeamsContainer

@@ -8,7 +8,7 @@
 import json
 import sys
 
-from Module.data.config import PUBLIC_DIR
+from src.libs.Module.data.config import PUBLIC_DIR
 
 
 class Message:

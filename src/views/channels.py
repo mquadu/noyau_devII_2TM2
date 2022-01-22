@@ -18,7 +18,7 @@ from kivy.uix.relativelayout import RelativeLayout
 from kivy.uix.screenmanager import ScreenManagerException
 from kivy.uix.scrollview import ScrollView
 
-from Module.data.config import VIEWS_DIR
+from src.libs.Module.data.config import VIEWS_DIR
 from src.models.screens_manager import ScreensManager
 
 kivy.require('2.0.0')
