@@ -1,7 +1,7 @@
 import sys
 import os
 import socket
-
+import tracemalloc
 
 # Link open street service
 headers = {'Accept': 'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8', }
@@ -52,10 +52,24 @@ def resto_link(address):
     return f"https://nominatim.openstreetmap.org/search?osmtype=N&addressdetails=1&q=restaurant+{address}&format=json"
 
 
-def check_conection():
+def check_conection_defaullt():
     try:
         socket.setdefaulttimeout(3)
         socket.socket(socket.AF_INET, socket.SOCK_STREAM).connect(("8.8.8.8", 53))
+        tracemalloc.stop()
         return False
     except socket.error as ex:
         return True
+
+
+def check_conection():
+    try:
+        # if we resolve the hostname urllib.urlopen() -- fonctionne aussi
+        host = socket.gethostbyname("www.google.com")
+
+        s = socket.create_connection((host, 80), 2)
+        return False
+
+    except:
+        pass
+    return True
