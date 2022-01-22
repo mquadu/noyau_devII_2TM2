@@ -8,7 +8,6 @@ Les demandes concernent la météo, les itinéraires, les actualités et la rech
 
 ## Requirements
 
----
 - Python3 or later
 - requests~=2.26.0
 - pymongo

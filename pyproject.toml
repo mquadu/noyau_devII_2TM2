@@ -15,5 +15,7 @@ requires = [
     "pywin32==301",
     "requests==2.26.0",
     "urllib3==1.26.6",
+    "setuptools>=42",
+    "wheel"
 ]
 build-backend = "setuptools.build_meta"
