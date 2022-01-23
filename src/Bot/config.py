@@ -14,24 +14,24 @@ open_street_link = 'https://api.openrouteservice.org/v2/directions/driving-car?a
 # Directory containing
 ROOT_DIR = ""
 if sys.platform == "win32":
-    if sys.path[0].split('\\').index(ROOT_DIRECTORY):
+    if ROOT_DIRECTORY in sys.path[0].split('\\'):
         index_root = sys.path[0].split('\\').index(ROOT_DIRECTORY)
         ROOT_DIR = "\\".join(sys.path[0].split("\\")[:index_root+1])
         MODULE_DIR = os.path.join(ROOT_DIR, "src")
     else:
-        ROOT_DIR = "\\".join(sys.path[-2].split("\\")[:])
+        ROOT_DIR = "\\".join(sys.path[-1].split("\\")[:])
         MODULE_DIR = ROOT_DIR
 
     HELP_FILE = os.path.join(MODULE_DIR, "Bot\\help.txt")
     CERTIFICATE_FILE = os.path.join(MODULE_DIR, "Bot\\db_key.pem")
 
 if sys.platform == "linux":
-    if sys.path[0].split('/').index(ROOT_DIRECTORY):
+    if ROOT_DIRECTORY in sys.path[0].split('\\'):
         index_root = sys.path[0].split('/').index(ROOT_DIRECTORY)
         ROOT_DIR = "/".join(sys.path[0].split("/")[:index_root + 1])
         MODULE_DIR = os.path.join(ROOT_DIR, "src")
     else:
-        ROOT_DIR = "/".join(sys.path[-2].split("/")[:])
+        ROOT_DIR = "/".join(sys.path[-1].split("/")[:])
         MODULE_DIR = ROOT_DIR
 
     HELP_FILE = os.path.join(MODULE_DIR, "Bot/help.txt")
