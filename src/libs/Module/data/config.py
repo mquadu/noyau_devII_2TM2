@@ -1,36 +1,63 @@
 import sys
 import os
 import socket
-import tracemalloc
+
+# RENOMER CETTE VARIABLE AVEC LE NOM DU DOSSIER QUI CONTIENT VOTRE PROJET
+ROOT_DIRECTORY = "noyau_devII_2TM2"
+COMMAND_LIST = ["/help", "/weather", "/itinerary", "/resto", "/cine", "/news", "/opinion"]
+
 
 # Link open street service
 headers = {'Accept': 'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8', }
 open_street_link = 'https://api.openrouteservice.org/v2/directions/driving-car?api_key' \
                    '=5b3ce3597851110001cf62481288a0a3b2fe4b43a2d8a701aaaa3436 '
-# "\\".join(
+
 # Directory containing
 ROOT_DIR = ""
 MODULE_DIR = ""
 HELP_FILE = ""
 CERTIFICATE_FILE = ""
+
+
 if sys.platform == "win32":
-    index_root = sys.path[0].split('\\').index("noyau_devII_2TM2")
-    ROOT_DIR = "\\".join(sys.path[0].split("\\")[:index_root+1])
-    MODULE_DIR = os.path.join(ROOT_DIR, "src\\libs\\Module")
+    if ROOT_DIRECTORY in sys.path[0].split('\\'):
+        index_root = sys.path[0].split('\\').index(ROOT_DIRECTORY)
+        ROOT_DIR = "\\".join(sys.path[0].split("\\")[:index_root + 1])
+        MODULE_DIR = os.path.join(ROOT_DIR, "src\\libs\\Module")
+    else:
+        ROOT_DIR = "\\".join(sys.path[-1].split("\\")[:])
+        MODULE_DIR = ROOT_DIR
+
     HELP_FILE = os.path.join(MODULE_DIR, "data\\help.txt")
     CERTIFICATE_FILE = os.path.join(MODULE_DIR, "data\\db_key.pem")
+    try:
+        with open(HELP_FILE) as fd:
+            pass
+    except FileNotFoundError:
+        HELP_FILE = os.path.join(sys.path[0], "src\\libs\\data\\help.txt")
+        CERTIFICATE_FILE = os.path.join(MODULE_DIR, "src\\libs\\data\\db_key.pem")
 
 if sys.platform == "linux":
-    index_root = sys.path[0].split('/').index("noyau_devII_2TM2")
-    ROOT_DIR = "/".join(sys.path[0].split("/")[:index_root + 1])
-    MODULE_DIR = os.path.join(ROOT_DIR, "src/libs/Module")
+    if ROOT_DIRECTORY in sys.path[0].split('/'):
+        index_root = sys.path[0].split('/').index(ROOT_DIRECTORY)
+        ROOT_DIR = "/".join(sys.path[0].split("/")[:index_root + 1])
+        MODULE_DIR = os.path.join(ROOT_DIR, "src/libs/Module")
+    else:
+        ROOT_DIR = "/".join(sys.path[-1].split("/")[:])
+        MODULE_DIR = ROOT_DIR
+
     HELP_FILE = os.path.join(MODULE_DIR, "data/help.txt")
     CERTIFICATE_FILE = os.path.join(MODULE_DIR, "data/db_key.pem")
+    try:
+        with open(HELP_FILE) as fd:
+            pass
+    except FileNotFoundError:
+        HELP_FILE = os.path.join(sys.path[0], "src/libs/Module/data/help.txt")
+        CERTIFICATE_FILE = os.path.join(MODULE_DIR, "src/libs/Module/data/db_key.pem")
 
 PUBLIC_DIR = os.path.join(ROOT_DIR, "public")
 VIEWS_DIR = os.path.join(PUBLIC_DIR, "views")
 SRC_DIR = os.path.join(ROOT_DIR, "src")
-COMMAND_LIST = ["/help", "/weather", "/itinerary", "/resto", "/cine", "/news", "/opinion"]
 
 # Link nominatim openstreetmap
 def itinerary_link(address):
@@ -69,6 +96,5 @@ def check_conection():
 
         socket.create_connection((host, 80), 2)
         return False
-    except:
-        pass
-    return True
+    except socket.error:
+        return True
