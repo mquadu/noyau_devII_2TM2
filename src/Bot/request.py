@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 from .config import check_conection
+import logging
+
+
+logger = logging.getLogger("bot")
 
 
 class ParameterException(Exception):

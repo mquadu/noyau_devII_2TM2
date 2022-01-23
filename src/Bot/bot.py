@@ -8,6 +8,10 @@ from .cine import Cine
 from .resto import Resto
 from .config import HELP_FILE, COMMAND_LIST
 from .opinion import Opinion
+import logging
+
+
+logger = logging.getLogger("bot")
 
 
 class ParameterException(Exception):
@@ -15,9 +19,13 @@ class ParameterException(Exception):
 
 
 class Bot:
-    # Mettre le chemin du fichier dans un fichier de configuration
-
     def __init__(self, message, command_list=COMMAND_LIST, help_file=HELP_FILE):
+        logger.setLevel(logging.DEBUG)
+        formatter = logging.Formatter("[%(levelname)s] %(asctime)s -- %(name)s -- %(message)s", datefmt='%d-%m-%Y '
+                                                                                                        '%H:%M:%S')
+        handler = logging.FileHandler(filename='Bot.log', mode="a", encoding="utf-8")
+        handler.setFormatter(formatter)
+        logger.addHandler(handler)
         self.__help = help_file
 
         self.__message = Request(message).get_message(command_list)
@@ -25,9 +33,9 @@ class Bot:
 
     def __str__(self):
         if isinstance(self.__message, list):
-
             return self.process_request(self.__message)
         else:
+            logger.error(self.__message)
             return self.__message
 
     @property
@@ -61,7 +69,9 @@ class Bot:
         # message est une liste contenant la commande et les paramètres que l'utilisateur a introduit
 
         if isinstance(message, list):
+
             if message[0] == "/help":
+                logger.info("Execution de la commande " + " ".join(message))
                 return self.get_help(self._help)
 
             elif message[0] == "/weather":
@@ -71,11 +81,12 @@ class Bot:
                     return Weather(message[0]).get_weather()
 
                 if len(message) > 2:
+                    logger.error(self.error)
                     return self.error
 
             elif message[0] == "/itinerary":
-                # si on a plus que 2 paramètres , erreur
                 if len(message) > 3 or len(message) <= 1:
+                    logger.error(self.error)
                     return self.error
                 if len(message) == 2:
                     return Itinerary(destination_address=message[1]).get_itinerary()
@@ -84,6 +95,7 @@ class Bot:
 
             elif message[0] == "/news":
                 if len(message) > 2 or len(message) <= 0:
+                    logger.error(self.error)
                     return self.error
                 if len(message) == 2:
                     return News(message[1]).get_news()
@@ -92,6 +104,7 @@ class Bot:
 
             elif message[0] == "/cine":
                 if len(message) > 2:
+                    logger.error(self.error)
                     return self.error
                 if len(message) == 2:
                     return Cine(message[1]).get_cine()
@@ -100,6 +113,7 @@ class Bot:
 
             elif message[0] == "/resto":
                 if len(message) > 2:
+                    logger.error(self.error)
                     return self.error
                 if len(message) == 2:
                     return Resto(message[1]).get_resto()
@@ -109,6 +123,7 @@ class Bot:
             elif message[0] == "/opinion":
 
                 if len(message) < 2:
+                    logger.error(self.error)
                     return self.error
                 if len(message) == 2:
                     return Opinion(message[1]).set_opinion()
@@ -119,4 +134,5 @@ class Bot:
                     commentaire = commentaire[:-1]
                     return Opinion(message[1], commentaire).set_opinion()
         elif isinstance(message, str):
+            logger.error(message)
             return message
