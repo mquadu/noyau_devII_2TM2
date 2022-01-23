@@ -1,4 +1,9 @@
+[![Test Bot](https://github.com/CardinPatson/noyau_devII_2TM2/actions/workflows/main.yml/badge.svg?branch=console)](https://github.com/CardinPatson/noyau_devII_2TM2/actions/workflows/main.yml)
+[![PyPI version](https://badge.fury.io/py/Bot-Externe.svg)](https://pypi.org/project/Bot-Externe/)
+[![Release](https://img.shields.io/github/v/release/CardinPatson/noyau_devII_2TM2)](https://libraries.io/pypi/Bot-Externe)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
+---
 # ChatBot Externe 
 Ce module fait partie du Projet EpheCom de la Haute-Ecole Ephec projet visant à créer une application basée sur le modèle Discord.
 
