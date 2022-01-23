@@ -26,7 +26,7 @@ if sys.platform == "win32":
     CERTIFICATE_FILE = os.path.join(MODULE_DIR, "Bot\\db_key.pem")
 
 if sys.platform == "linux":
-    if ROOT_DIRECTORY in sys.path[0].split('\\'):
+    if ROOT_DIRECTORY in sys.path[0].split('/'):
         index_root = sys.path[0].split('/').index(ROOT_DIRECTORY)
         ROOT_DIR = "/".join(sys.path[0].split("/")[:index_root + 1])
         MODULE_DIR = os.path.join(ROOT_DIR, "src")
