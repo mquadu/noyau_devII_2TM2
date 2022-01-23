@@ -22,8 +22,8 @@ class TestNews(unittest.TestCase):
         self.assertEqual(self.news2.date, "&date=" + self.date)
 
     def test_get_news(self):
-        # self.assertEqual(len(self.news1.get_news().split("\n")), 10)
-        # self.assertEqual(len(self.news2.get_news().split("\n")), 10)
+        self.assertEqual(len(self.news1.get_news().split("\n")), 10)
+        self.assertEqual(len(self.news2.get_news().split("\n")), 10)
         self.assertEqual(self.news3.get_news(),
                          "Désolé nous n'avons pas trouvé d'article en français pour le pays ou le sujet sélectionné")
         self.assertEqual(self.news4.get_news(),

@@ -52,8 +52,8 @@ if sys.platform == "linux":
         with open(HELP_FILE) as fd:
             pass
     except FileNotFoundError:
-        HELP_FILE = os.path.join(sys.path[0], "src/libs/data/help.txt")
-        CERTIFICATE_FILE = os.path.join(MODULE_DIR, "src/libs/data/db_key.pem")
+        HELP_FILE = os.path.join(sys.path[0], "src/libs/Module/data/help.txt")
+        CERTIFICATE_FILE = os.path.join(MODULE_DIR, "src/libs/Module/data/db_key.pem")
 
 PUBLIC_DIR = os.path.join(ROOT_DIR, "public")
 VIEWS_DIR = os.path.join(PUBLIC_DIR, "views")
