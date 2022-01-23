@@ -41,7 +41,7 @@ if sys.platform == "linux":
     if ROOT_DIRECTORY in sys.path[0].split('/'):
         index_root = sys.path[0].split('/').index(ROOT_DIRECTORY)
         ROOT_DIR = "/".join(sys.path[0].split("/")[:index_root + 1])
-        MODULE_DIR = os.path.join(ROOT_DIR,"src/libs/Module")
+        MODULE_DIR = os.path.join(ROOT_DIR, "src/libs/Module")
     else:
         ROOT_DIR = "/".join(sys.path[-1].split("/")[:])
         MODULE_DIR = ROOT_DIR
@@ -52,8 +52,8 @@ if sys.platform == "linux":
         with open(HELP_FILE) as fd:
             pass
     except FileNotFoundError:
-        HELP_FILE = os.path.join(sys.path[0], "src/Bot/help.txt")
-        CERTIFICATE_FILE = os.path.join(MODULE_DIR, "src/Bot/db_key.pem")
+        HELP_FILE = os.path.join(sys.path[0], "src/libs/data/help.txt")
+        CERTIFICATE_FILE = os.path.join(MODULE_DIR, "src/libs/data/db_key.pem")
 
 PUBLIC_DIR = os.path.join(ROOT_DIR, "public")
 VIEWS_DIR = os.path.join(PUBLIC_DIR, "views")
