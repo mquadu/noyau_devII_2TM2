@@ -112,7 +112,7 @@ python -m unittest test/test.py
 ```
 
 ## Licence
-MIT
+GPLv3
 
 
 
