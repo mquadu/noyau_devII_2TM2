@@ -1,13 +1,13 @@
 
 # -*- coding: utf-8 -*-
-from Bot.request import Request
-from Bot.weather import Weather
-from Bot.itinerary import Itinerary
-from Bot.news import News
-from Bot.cine import Cine
-from Bot.resto import Resto
-from Bot.config import HELP_FILE, COMMAND_LIST
-from Bot.opinion import Opinion
+from .request import Request
+from .weather import Weather
+from .itinerary import Itinerary
+from .news import News
+from .cine import Cine
+from .resto import Resto
+from .config import HELP_FILE, COMMAND_LIST
+from .opinion import Opinion
 
 
 class ParameterException(Exception):

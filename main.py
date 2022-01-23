@@ -1,9 +1,11 @@
-from src.Bot.config import COMMAND_LIST , ROOT_DIR
-from src.Bot.request import Request
+import logging
 from src.Bot.bot import Bot
 
-if __name__ == "__main__":
 
+if __name__ == "__main__":
+    logging.basicConfig(filename='main.log',  filemode='a', format='%(asctime)s-%(levelname)s-%(message)s',  datefmt='%Y-%m-%d %H:%M:%s') #level=logging.DEBUG,
+
+    logging.warning("ceci est un warning dans les logs")
     print("\t-----  BIENVENUE SUR LE CHATBOT EXTERNE -----\n")
     print("--Entrez /help pour voir la liste des commandes disponibles et leurs utilitées --\n\n ")
     while True:

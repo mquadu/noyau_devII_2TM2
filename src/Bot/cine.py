@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from Bot.config import cine_link
+from .config import cine_link
 import requests
 
 
