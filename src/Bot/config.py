@@ -21,8 +21,13 @@ if sys.platform == "win32":
     else:
         ROOT_DIR = "\\".join(sys.path[-1].split("\\")[:])
         MODULE_DIR = ROOT_DIR
-
+    
     HELP_FILE = os.path.join(MODULE_DIR, "Bot\\help.txt")
+    try :
+      with open(HELP_FILE) as fd:
+        pass
+    except FileNotFoundError:
+      HELP_FILE = os.path.join(sys.path[0].split("\\") , "src\\Bot\\help.txt")
     CERTIFICATE_FILE = os.path.join(MODULE_DIR, "Bot\\db_key.pem")
 
 if sys.platform == "linux":
@@ -35,6 +40,11 @@ if sys.platform == "linux":
         MODULE_DIR = ROOT_DIR
 
     HELP_FILE = os.path.join(MODULE_DIR, "Bot/help.txt")
+    try :
+      with open(HELP_FILE) as fd:
+        pass
+    except FileNotFoundError:
+      HELP_FILE = os.path.join(sys.path[0] , "src/Bot/help.txt")
     CERTIFICATE_FILE = os.path.join(MODULE_DIR, "Bot/db_key.pem")
 
 COMMAND_LIST = ["/help", "/weather", "/itinerary", "/resto", "/cine", "/news", "/opinion"]
