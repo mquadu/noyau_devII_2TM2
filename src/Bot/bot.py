@@ -25,6 +25,7 @@ class Bot:
 
     def __str__(self):
         if isinstance(self.__message, list):
+
             return self.process_request(self.__message)
         else:
             return self.__message
