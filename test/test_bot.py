@@ -25,8 +25,8 @@ class TestBot(unittest.TestCase):
                 Request("/itinerary louvain-la-neuve ottignies").get_message(self.true_command_list))), 1201)
         self.assertEqual(len(Bot(Request("/cine namur"), self.true_command_list).process_request(
             Request("/cine namur").get_message(self.true_command_list))), 187)
-        self.assertEqual(len(Bot(Request("/news basket"), self.true_command_list).process_request(
-            Request("/news basket").get_message(self.true_command_list)).split("\n")), 1)
+        # self.assertEqual(len(Bot(Request("/news basket"), self.true_command_list).process_request(
+        #     Request("/news basket").get_message(self.true_command_list)).split("\n")), 1)
         self.assertEqual(len(Bot(Request("/resto gembloux"), self.true_command_list).process_request(
             Request("/resto gembloux").get_message(self.true_command_list))), 84)
 
