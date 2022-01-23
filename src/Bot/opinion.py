@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
-import sys
 from pymongo import MongoClient
-from src.data.config import CERTIFICATE_FILE
+from .config import CERTIFICATE_FILE
 
 
 class ParameterException(Exception):

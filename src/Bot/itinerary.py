@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import src.data.config as config
+from .config import headers, itinerary_link, open_street_link
 import requests
 
 
@@ -15,8 +15,8 @@ class Itinerary:
         if not self.__destination_address:
             raise ParameterException("Erreur de paramètre")
 
-        self.__url_address_origin = config.itinerary_link(origin_address)
-        self.__url_address_destination = config.itinerary_link(destination_address)
+        self.__url_address_origin = itinerary_link(origin_address)
+        self.__url_address_destination = itinerary_link(destination_address)
 
         self.__response = {}
 
@@ -42,9 +42,9 @@ class Itinerary:
 
     def process_request(self, lon_o, lat_o, lon_d, lat_d):
         self.__response = requests.get(
-            config.open_street_link + '&start=' + lon_o + ',' +
+            open_street_link + '&start=' + lon_o + ',' +
             lat_o + '&end=' + lon_d + ',' + lat_d,
-            headers=config.headers).json()
+            headers=headers).json()
 
     def get_itinerary(self):
         """

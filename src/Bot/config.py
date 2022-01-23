@@ -1,10 +1,11 @@
-# -*- coding: utf-8 -*-
+## -*- coding: utf-8 -*-
 import sys
 import os
 import socket
 
 # RENOMER CETTE VARIABLE AVEC LE NOM DU DOSSIER QUI CONTIENT VOTRE PROJET
 ROOT_DIRECTORY = "noyau_devII_2TM2"
+COMMAND_LIST = ["/help", "/weather", "/itinerary", "/resto", "/cine", "/news", "/opinion"]
 
 # Link open street service
 headers = {'Accept': 'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8', }
@@ -14,20 +15,41 @@ open_street_link = 'https://api.openrouteservice.org/v2/directions/driving-car?a
 # Directory containing
 ROOT_DIR = ""
 if sys.platform == "win32":
-    index_root = sys.path[0].split('\\').index(ROOT_DIRECTORY)
-    ROOT_DIR = "\\".join(sys.path[0].split("\\")[:index_root+1])
-    MODULE_DIR = os.path.join(ROOT_DIR, "src")
-    HELP_FILE = os.path.join(MODULE_DIR, "data\\help.txt")
-    CERTIFICATE_FILE = os.path.join(MODULE_DIR, "data\\db_key.pem")
+    if ROOT_DIRECTORY in sys.path[0].split('\\'):
+        index_root = sys.path[0].split('\\').index(ROOT_DIRECTORY)
+        ROOT_DIR = "\\".join(sys.path[0].split("\\")[:index_root + 1])
+        MODULE_DIR = os.path.join(ROOT_DIR, "src")
+    else:
+        ROOT_DIR = "\\".join(sys.path[-1].split("\\")[:])
+        MODULE_DIR = ROOT_DIR
+
+    HELP_FILE = os.path.join(MODULE_DIR, "Bot\\help.txt")
+    CERTIFICATE_FILE = os.path.join(MODULE_DIR, "Bot\\db_key.pem")
+    try:
+        with open(HELP_FILE) as fd:
+            pass
+    except FileNotFoundError:
+        HELP_FILE = os.path.join(sys.path[0], "src\\Bot\\help.txt")
+        CERTIFICATE_FILE = os.path.join(MODULE_DIR, "src\\Bot\\db_key.pem")
 
 if sys.platform == "linux":
-    index_root = sys.path[0].split('/').index(ROOT_DIRECTORY)
-    ROOT_DIR = "/".join(sys.path[0].split("/")[:-2])
-    MODULE_DIR = os.path.join(ROOT_DIR, "src")
-    HELP_FILE = os.path.join(MODULE_DIR, "data/help.txt")
-    CERTIFICATE_FILE = os.path.join(MODULE_DIR, "data/db_key.pem")
+    if ROOT_DIRECTORY in sys.path[0].split('/'):
+        index_root = sys.path[0].split('/').index(ROOT_DIRECTORY)
+        ROOT_DIR = "/".join(sys.path[0].split("/")[:index_root + 1])
+        MODULE_DIR = os.path.join(ROOT_DIR, "src")
+    else:
+        ROOT_DIR = "/".join(sys.path[-1].split("/")[:])
+        MODULE_DIR = ROOT_DIR
 
-COMMAND_LIST = ["/help", "/weather", "/itinerary", "/resto", "/cine", "/news", "/opinion"]
+    HELP_FILE = os.path.join(MODULE_DIR, "Bot/help.txt")
+    CERTIFICATE_FILE = os.path.join(MODULE_DIR, "Bot/db_key.pem")
+    try:
+        with open(HELP_FILE) as fd:
+            pass
+    except FileNotFoundError:
+        HELP_FILE = os.path.join(sys.path[0], "src/Bot/help.txt")
+        CERTIFICATE_FILE = os.path.join(MODULE_DIR, "src/Bot/db_key.pem")
+
 
 # Link nominatim openstreetmap
 def itinerary_link(address):
