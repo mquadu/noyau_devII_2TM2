@@ -2,7 +2,7 @@ import sys
 import os
 import socket
 
-# RENOMER CETTE VARIABLE AVEC LE NOM DU DOSSIER QUI CONTIENT VOTRE PROJET
+# RENOMMER CETTE VARIABLE AVEC LE NOM DU DOSSIER QUI CONTIENT VOTRE PROJET
 ROOT_DIRECTORY = "noyau_devII_2TM2"
 COMMAND_LIST = ["/help", "/weather", "/itinerary", "/resto", "/cine", "/news", "/opinion"]
 
