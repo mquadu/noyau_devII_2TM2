@@ -4,4 +4,4 @@
 /news        Renvoie les actualites nationales. Un parametre supplementaire permet de preciser un pays
 /resto       Renvoie une liste des restaurants de LLN par defaut, d'une autre ville si precisee en parametre.
 /cine        Renvoie une liste des cinemas de LLN par defaut, d'une autre ville si precisee en parametre.
-/opinion     Permet à l'utilisateur de faire part de son opinion quant à l'utilisation du bot. Un second parametre lui permet de laisser un commentaire sous forme d'une chaine de caracteres
+/opinion     Permet aux utilisateurs de faire part de leurs opinions quant sur l'utilisation du bot. Un second parametre lui permet de laisser un commentaire sous forme d'une chaine de caracteres
