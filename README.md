@@ -1,4 +1,4 @@
-[![Test Module Bot](https://github.com/CardinPatson/noyau_devII_2TM2/actions/workflows/test_module_bot.yml/badge.svg)](https://github.com/CardinPatson/noyau_devII_2TM2/actions/workflows/test_module_bot.yml)
+[![Test Module Bot](https://github.com/CardinPatson/noyau_devII_2TM2/actions/workflows/test_module_bot.yml/badge.svg?branch=master)](https://github.com/CardinPatson/noyau_devII_2TM2/actions/workflows/test_module_bot.yml)
 [![Build](https://github.com/CardinPatson/noyau_devII_2TM2/actions/workflows/build.yml/badge.svg)](https://github.com/CardinPatson/noyau_devII_2TM2/actions/workflows/build.yml)
 [![PyPI version](https://badge.fury.io/py/Bot-Externe.svg)](https://pypi.org/project/Bot-Externe/)
 [![Release](https://img.shields.io/github/v/release/CardinPatson/noyau_devII_2TM2)](https://libraries.io/pypi/Bot-Externe)
